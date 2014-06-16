@@ -25,7 +25,7 @@ public class DetailTransactionFragment extends Fragment {
         //amountDetailTV = (TextView) v.findViewById(R.id.amountDetailTV);
 
         TextView addPurchaseTV = (TextView) v.findViewById(R.id.addPurchaseTV);
-        Typeface roboFont = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.ttf");
+        Typeface roboFont = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.tt");
         addPurchaseTV.setTypeface(roboFont);
 
 
