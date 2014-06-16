@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#2f302c"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="250dp"
+        android:layout_height="40sp"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/abc_ab_transparent_dark_holo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="86dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/usernameET"
+        android:layout_width="250dp"
+        android:layout_height="40sp"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/abc_ab_transparent_dark_holo"
+        android:layout_alignLeft="@+id/emailET"
+        android:layout_below="@+id/emailET"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textUri" />
+
+    <EditText
+        android:id="@+id/passwordET"
+        android:layout_width="250dp"
+        android:layout_height="40sp"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/abc_ab_transparent_dark_holo"
+        android:layout_alignLeft="@+id/usernameET"
+        android:layout_below="@+id/usernameET"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/submitRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:alpha="0.1"
+        android:background="#8E918F"
+        android:height="60dp"
+        android:layout_below="@+id/passwordET"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:ems="5"
+        android:onClick="register"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/submitRegister"
+        android:layout_alignBottom="@+id/submitRegister"
+        android:layout_centerHorizontal="true"
+        android:text="Sign up"
+        android:textSize="25sp"
+        android:textColor="#ffffff"
+        android:id="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=">"
+        android:textSize="25sp"
+        android:textColor="#c2c2c2"
+        android:layout_alignBaseline="@+id/submitRegister"
+        android:layout_alignBottom="@+id/submitRegister"
+        android:layout_toRightOf="@+id/passwordET"
+        android:layout_marginLeft="20sp"/>
+
+</RelativeLayout><!-- From: file:/C:/Users/Natan/Android/app/src/main/res/layout/fragment_register.xml -->

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+	
+    <ImageView
+        android:id="@+id/typeTransaction"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+    </ImageView>
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:text="Amount"
+        android:textSize="16sp"
+        android:layout_weight="2" >
+    </TextView>
+    
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:textSize="16sp"
+        android:layout_weight="2"
+        android:gravity="left"
+         >
+    </TextView>
+    
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="16sp"
+        android:layout_weight="2"
+        android:gravity="right" >
+    </TextView>
+
+</LinearLayout> <!-- From: file:/C:/Users/Natan/Android/app/src/main/res/layout/list_row_layout.xml -->
