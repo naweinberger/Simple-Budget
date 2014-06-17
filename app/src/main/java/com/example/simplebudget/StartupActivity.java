@@ -63,7 +63,6 @@ public class StartupActivity extends Activity {
 
 
 
-        logo.setTextSize(height/14);
         logo.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
         loginBtn.setHeight(height/6);

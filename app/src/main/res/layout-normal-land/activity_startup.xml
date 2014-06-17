@@ -1,0 +1,84 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#2f302c"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_name"
+        android:id="@+id/logoTV"
+        android:textSize="60dp"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alpha="0.1"
+        android:background="#8E918F"
+        android:height="60dp"
+        android:onClick="pushRegister"
+        android:textColor="#ffffff"
+        android:textSize="25sp"
+        android:visibility="invisible"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="32dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.1"
+        android:background="#8E918F"
+        android:height="60dp"
+        android:onClick="pushLogin"
+        android:textColor="#ffffff"
+        android:textSize="35sp"
+        android:visibility="invisible"
+        android:layout_above="@+id/registerBtn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/loginTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="1"
+        android:text="Login"
+        android:textSize="25sp"
+        android:visibility="invisible"
+        android:layout_alignBottom="@+id/loginBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/loginBtn"
+        android:gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/registerTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="1"
+        android:text="Sign up"
+        android:textSize="25sp"
+        android:visibility="invisible"
+        android:layout_alignBaseline="@+id/registerBtn"
+        android:layout_alignBottom="@+id/registerBtn"
+        android:layout_centerHorizontal="true"
+         />
+
+
+
+</RelativeLayout>
