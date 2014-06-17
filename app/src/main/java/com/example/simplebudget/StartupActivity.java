@@ -3,15 +3,19 @@ package com.example.simplebudget;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Display;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 //public class StartupFragment extends Fragment {
@@ -26,15 +30,18 @@ import android.widget.TextView;
 //}
 
 public class StartupActivity extends Activity {
+
 	private float xCurrentPos, yCurrentPos;
 	Button loginBtn, registerBtn;
 	TextView loginText, registerText, logo;
     Context context = StartupActivity.this;
+    int pixels;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startup);
+
         logo = (TextView) findViewById(R.id.logoTV);
     	xCurrentPos = logo.getLeft();
         yCurrentPos = logo.getTop(); 
@@ -48,10 +55,22 @@ public class StartupActivity extends Activity {
         Typeface roboFont = Typeface.createFromAsset(context.getAssets(), "Roboto-Thin.ttf");
         logo.setTypeface(roboFont);
 
-        int dp = 90;
-        final float scale = getResources().getDisplayMetrics().density;
-        // Convert the dps to pixels, based on density scale
-        final int pixels = (int) (dp * scale + 0.5f);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int height = size.y;
+
+
+
+        logo.setTextSize(height/14);
+        logo.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        loginBtn.setHeight(height/6);
+        registerBtn.setHeight(height/6);
+
+
+        pixels = height/4;
         
         new Handler().postDelayed(new Runnable(){
        	 
