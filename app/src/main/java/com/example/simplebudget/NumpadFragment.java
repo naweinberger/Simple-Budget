@@ -1,6 +1,7 @@
 package com.example.simplebudget;
 
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,6 +49,9 @@ public class NumpadFragment extends Fragment {
         eight = (Button) v.findViewById(R.id.eightBtn);
         nine = (Button) v.findViewById(R.id.nineBtn);
         zero = (Button) v.findViewById(R.id.zeroBtn);
+
+        //For changing button background on press
+        Button [] buttons = {one, two, three, four, five, six, seven, eight, nine, zero};
 
         one.setTypeface(roboFont);
         two.setTypeface(roboFont);

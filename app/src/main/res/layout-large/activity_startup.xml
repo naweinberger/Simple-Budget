@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:alpha="0.1"
         android:background="#8E918F"
-        android:height="60dp"
+        android:height="80dp"
         android:onClick="pushRegister"
         android:textColor="#ffffff"
         android:textSize="25sp"
@@ -45,7 +45,7 @@
         android:layout_alignParentRight="true"
         android:alpha="0.1"
         android:background="#8E918F"
-        android:height="60dp"
+        android:height="80dp"
         android:onClick="pushLogin"
         android:textColor="#ffffff"
         android:textSize="25sp"
@@ -55,12 +55,14 @@
         android:id="@+id/loginTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/loginBtn"
         android:layout_alignBaseline="@+id/loginBtn"
         android:layout_alignBottom="@+id/loginBtn"
         android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
         android:alpha="1"
         android:text="Login"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:visibility="invisible" />
 
     <TextView
@@ -69,11 +71,13 @@
         android:layout_height="wrap_content"
         android:alpha="1"
         android:text="Sign up"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:visibility="invisible"
+        android:layout_alignTop="@+id/registerBtn"
         android:layout_alignBaseline="@+id/registerBtn"
         android:layout_alignBottom="@+id/registerBtn"
         android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
          />
 
 

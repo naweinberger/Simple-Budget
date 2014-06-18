@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <fragment
+        class="com.example.simplebudget.FragmentTransactionActivity"
+        android:id="@+id/fragment_catalog"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_transaction">
+    </fragment>
+
+    <fragment
+        class="com.example.simplebudget.FragmentHistoryActivity"
+        android:id="@+id/fragment_test"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_history">
+    </fragment>
+
+</LinearLayout>
