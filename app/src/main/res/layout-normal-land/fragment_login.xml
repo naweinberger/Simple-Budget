@@ -1,0 +1,82 @@
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#2f302c"
+    android:orientation="vertical"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="20sp"
+        android:orientation="horizontal">
+    <EditText
+        android:id="@+id/usernameET"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="30sp"
+        android:hint="Username"
+        android:inputType="textUri"
+        android:textColor="#d0d6d6"
+        android:editable="true"
+        android:selectAllOnFocus="true"
+        android:background="@drawable/abc_ab_transparent_light_holo">
+
+        <requestFocus />
+    </EditText>
+    <View
+        android:layout_height="10dp"
+        android:layout_weight=".1"
+        android:layout_width="0dp">
+
+    </View>
+    <EditText
+        android:id="@+id/passwordET"
+        style="@android:style/TextAppearance.Holo.Widget.EditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:background="@drawable/abc_ab_transparent_light_holo" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <Button
+        android:id="@+id/submitLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity=""
+        android:alpha="0.1"
+        android:background="#8E918F"
+        android:height="60dp"
+        android:onClick="login"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/submitLogin"
+        android:layout_centerInParent="true"
+        android:text="Login"
+        android:textSize="25sp"
+        android:textColor="#ffffff"
+        android:id="@+id/textView2" />
+        </RelativeLayout>
+</LinearLayout>
+
+
+</LinearLayout>

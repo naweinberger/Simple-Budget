@@ -2,13 +2,16 @@ package com.example.simplebudget;
 
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,26 +21,21 @@ import java.text.DecimalFormat;
 /**
  * Created by Natan on 6/12/2014.
  */
-public class NumpadFragment extends Fragment {
-    static TextView amountTV;
-    TableRow tr1, tr2, tr3, tr4;
+public class NumpadFragment extends Fragment implements View.OnClickListener {
+    static TextFitTextView amountDisplayTV;
     Button one, two, three, four, five, six, seven, eight, nine, zero;
+    ImageButton backspaceBtn;
+    private double amount = 0;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         
-        View v = inflater.inflate(R.layout.numpad, container, false);
+        View v = inflater.inflate(R.layout.numpad_linear, container, false);
 
-        amountTV  = (TextView) v.findViewById(R.id.dialogValue);
+        amountDisplayTV  = (TextFitTextView) v.findViewById(R.id.amountDisplayTV);
 
         Typeface roboFont = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.ttf");
-
-
-        tr1 = (TableRow) v.findViewById(R.id.first);
-        tr2 = (TableRow) v.findViewById(R.id.second);
-        tr3 = (TableRow) v.findViewById(R.id.third);
-        tr4 = (TableRow) v.findViewById(R.id.fourth);
 
         one = (Button) v.findViewById(R.id.oneBtn);
         two = (Button) v.findViewById(R.id.twoBtn);
@@ -49,39 +47,80 @@ public class NumpadFragment extends Fragment {
         eight = (Button) v.findViewById(R.id.eightBtn);
         nine = (Button) v.findViewById(R.id.nineBtn);
         zero = (Button) v.findViewById(R.id.zeroBtn);
+        backspaceBtn = (ImageButton) v.findViewById(R.id.backspaceBtn);
 
-        //For changing button background on press
         Button [] buttons = {one, two, three, four, five, six, seven, eight, nine, zero};
 
-        one.setTypeface(roboFont);
-        two.setTypeface(roboFont);
-        three.setTypeface(roboFont);
-        four.setTypeface(roboFont);
-        five.setTypeface(roboFont);
-        six.setTypeface(roboFont);
-        seven.setTypeface(roboFont);
-        eight.setTypeface(roboFont);
-        nine.setTypeface(roboFont);
-        zero.setTypeface(roboFont);
-        amountTV.setTypeface(roboFont);
 
 
-        int theWidth = one.getLayoutParams().width;
-        tr1.setMinimumHeight(theWidth);
-        tr2.setMinimumHeight(theWidth);
-        tr3.setMinimumHeight(theWidth);
-        tr4.setMinimumHeight(theWidth);
-        // Inflate the layout for this fragment
+        for (Button btn : buttons) {
+            btn.setTypeface(roboFont);
+            btn.setOnClickListener(this);
+        }
+
+        amountDisplayTV.setTypeface(roboFont);
+        DecimalFormat myFormatter = new DecimalFormat("$###,###,###.##");
+        myFormatter.setMinimumFractionDigits(2);
+        String amountString = myFormatter.format(amount);
+        amountDisplayTV.setText(amountString);
+
+        backspaceBtn.setOnClickListener(this);
         return v;
     }
 
-    public static void setAmountText(String text) {
-        amountTV.setText(text);
+
+    public void addDigit(int digit) {
+        if (amount <= 99999){
+            amount *= 10;
+            amount += (double) digit / 100;
+
+            DecimalFormat myFormatter = new DecimalFormat("$###,###,###.##");
+            myFormatter.setMinimumFractionDigits(2);
+            String amountString = myFormatter.format(amount);
+            amountDisplayTV.setText(amountString);
+        }
+        else {
+            Toast.makeText(getActivity(), "That's a large transaction!", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public static String getAmountText() {
-        return amountTV.getText().toString();
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.backspaceBtn:
+                backspaceTransaction();
+                break;
+            default:
+                try {
+                    Button btn = (Button) view;
+                    addDigit(Integer.valueOf(btn.getText().toString()));
+                }
+                catch (Exception e) {
+                    Log.d("onClick/NumpadFragment", e.toString());
+                }
+
+        }
+
     }
 
+    public void backspaceTransaction() {
+        try {
+            String newAmount = String.valueOf((int) (amount * 100));
+            Log.d("TEST", "cents: " + newAmount);
+            String mnewAmount = newAmount.substring(0, newAmount.length() - 1);
+            Log.d("TEST", "mnewAmount: " + mnewAmount);
+            amount = Double.valueOf(mnewAmount);
+            amount /= 100;
+            Log.d("TEST", "amount value is really " + String.valueOf(amount));
 
+            DecimalFormat myFormatter = new DecimalFormat("$###,###,###.##");
+            myFormatter.setMinimumFractionDigits(2);
+            String amountString = myFormatter.format(amount);
+            amountDisplayTV.setText(amountString);
+        }
+        catch (Exception e) {
+            amountDisplayTV.setText("$0.00");
+            amount = 0;
+        }
+    }
 }

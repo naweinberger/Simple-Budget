@@ -1,111 +1,107 @@
-<TableLayout
+<LinearLayout
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:stretchColumns="1"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--
-    <TableRow
-        android:id="@+id/first"
-        android:layout_weight="1"
-        android:layout_height="0dp"
-        android:background="#2f302c">
-        <com.example.simplebudget.TextFitTextView
-            android:id="@+id/dialogValue"
-            android:text="$0.00"
-            style="@style/NumpadTextView">
 
-        </com.example.simplebudget.TextFitTextView>
-    </TableRow>
-    <TableRow
-        android:id="@+id/second"
-        android:layout_weight="1"
-        android:layout_height="0dp">
+    <com.example.simplebudget.TextFitTextView
+        android:id="@+id/amountDisplayTV"
+        style="@style/NumpadTextView"
+        android:text="$0.00">
+
+    </com.example.simplebudget.TextFitTextView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
         <Button
             android:id="@+id/oneBtn"
             android:text="1"
             style="@style/NumpadButton"
-            android:onClick="addOne">
+            >
         </Button>
         <Button
             android:id="@+id/twoBtn"
             android:text="2"
-            style="@style/NumpadButton"
-            android:onClick="addTwo">
+            style="@style/NumpadButton">
 
         </Button>
         <Button
             android:id="@+id/threeBtn"
             android:text="3"
-            style="@style/NumpadButton"
-            android:onClick="addThree">
+            style="@style/NumpadButton">
 
         </Button>
-    </TableRow>
-    <TableRow
-        android:id="@+id/third"
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1">
         <Button
             android:id="@+id/fourBtn"
             android:text="4"
-            style="@style/NumpadButton"
-            android:onClick="addFour">
+            style="@style/NumpadButton">
         </Button>
         <Button
             android:id="@+id/fiveBtn"
             android:text="5"
-            style="@style/NumpadButton"
-            android:onClick="addFive">
+            style="@style/NumpadButton">
 
         </Button>
         <Button
             android:id="@+id/sixBtn"
             android:text="6"
-            style="@style/NumpadButton"
-            android:onClick="addSix">
+            style="@style/NumpadButton">
 
         </Button>
-    </TableRow>
-    <TableRow
-        android:id="@+id/fourth"
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1">
         <Button
             android:id="@+id/sevenBtn"
             android:text="7"
             android:textSize="70sp"
-            style="@style/NumpadButton"
-            android:onClick="addSeven">
+            style="@style/NumpadButton">
         </Button>
         <Button
             android:id="@+id/eightBtn"
             android:text="8"
-            style="@style/NumpadButton"
-            android:onClick="addEight">
+            style="@style/NumpadButton">
 
         </Button>
         <Button
             android:id="@+id/nineBtn"
             android:text="9"
-            style="@style/NumpadButton"
-            android:onClick="addNine">
+            style="@style/NumpadButton">
 
         </Button>
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/fifth"
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1">
         <ImageButton
             android:id="@+id/backspaceBtn"
             android:src="@drawable/sym_keyboard_delete"
-            style="@style/NumpadButton"
-            android:onClick="backspaceTransaction">
-            8E918F
+            style="@style/NumpadButton">
+            <!--8E918F-->
         </ImageButton>
         <Button
             android:id="@+id/zeroBtn"
             android:text="0"
-            style="@style/NumpadButton"
-            android:onClick="addZero">
+            style="@style/NumpadButton">
 
         </Button>
         <ImageButton
@@ -115,8 +111,6 @@
             android:onClick="advanceTransaction">
 
         </ImageButton>
-    </TableRow>
+    </LinearLayout>
 
--->
-    </TableLayout>
-
+</LinearLayout>

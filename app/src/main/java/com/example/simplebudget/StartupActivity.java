@@ -35,7 +35,7 @@ public class StartupActivity extends Activity {
 	Button loginBtn, registerBtn;
 	TextView loginText, registerText, logo;
     Context context = StartupActivity.this;
-    int pixels;
+    int pixels, height;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class StartupActivity extends Activity {
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        int height = size.y;
+        height = size.y;
 
 
 
