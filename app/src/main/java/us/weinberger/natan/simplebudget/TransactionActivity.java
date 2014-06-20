@@ -61,10 +61,10 @@ public class TransactionActivity extends FragmentActivity {
 
 
     public void advanceTransaction (View view) {
-        //Bundle args = new Bundle();
-        //args.putString("AMT", NumpadFragment.getAmountText());
-       final DetailTransactionFragment detailTransactionFragment = new DetailTransactionFragment();
-        //detailTransactionFragment.setArguments(args);
+        Bundle args = new Bundle();
+        args.putString("AMT", NumpadFragment.getAmountText());
+        final DetailTransactionFragment detailTransactionFragment = new DetailTransactionFragment();
+        detailTransactionFragment.setArguments(args);
         final FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, detailTransactionFragment, "tag");
         transaction.addToBackStack(null);

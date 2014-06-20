@@ -63,6 +63,9 @@ public class NumpadFragment extends Fragment implements View.OnClickListener {
         return v;
     }
 
+    public static String getAmountText() {
+        return amountDisplayTV.getText().toString();
+    }
 
     public void addDigit(int digit) {
         if (amount <= 99999){

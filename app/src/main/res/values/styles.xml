@@ -42,4 +42,10 @@
         <item name="android:maxLines">1</item>
 
     </style>
+
+    <style name="DetailTransactionTextView">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:padding">10dp</item>
+    </style>
 </resources>
