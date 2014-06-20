@@ -12,7 +12,7 @@ import android.widget.TextView;
  * Created by Natan on 6/12/2014.
  */
 public class DetailTransactionFragment extends Fragment {
-    static TextView amountDetailTV, locationTV, typeTV, outgoingTV;
+    static TextView amountDetailTV, locationTV, outgoingTV;
     String amountString;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -24,10 +24,9 @@ public class DetailTransactionFragment extends Fragment {
         TextView addPurchaseTV = (TextView) v.findViewById(R.id.addPurchaseTV);
         amountDetailTV = (TextView) v.findViewById(R.id.amountDetailTV);
         locationTV = (TextView) v.findViewById(R.id.DetailTransactionLocationTextView);
-        typeTV = (TextView) v.findViewById(R.id.DetailTransactionTypeTextView);
         outgoingTV = (TextView) v.findViewById(R.id.DetailTransactionOutgoingTextView);
 
-        TextView[] textViews = {addPurchaseTV, amountDetailTV, locationTV, typeTV, outgoingTV};
+        TextView[] textViews = {addPurchaseTV, amountDetailTV, locationTV, outgoingTV};
 
         Typeface roboFont = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.ttf");
         for (TextView textView : textViews) textView.setTypeface(roboFont);

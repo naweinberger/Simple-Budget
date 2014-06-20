@@ -14,52 +14,51 @@
         android:textSize="21sp"
         android:text="add details"
         android:gravity="center_vertical"
-        android:padding="5dp" />
+        android:paddingLeft="10dp" />
 
     <TextView
         android:id="@+id/amountDetailTV"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight=".6"
+        android:layout_weight=".65"
         android:gravity="center_vertical"
         android:textColor="#99cc00"
-        android:textSize="40sp"
+        android:textSize="50sp"
         android:text="$0.00"
-        android:padding="5dp"
+        android:padding="10dp"
         style="@android:style/TextAppearance.Holo.Widget.EditText"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight=".8">
         <TextView
             android:id="@+id/DetailTransactionLocationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/DetailTransactionTextView"
             android:text="Location"/>
-        <AutoCompleteTextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter location"
             android:layout_below="@+id/DetailTransactionLocationTextView"
-            android:layout_centerHorizontal="true"/>
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-        <TextView
-            android:id="@+id/DetailTransactionTypeTextView"
-            android:layout_width="wrap_content"
+            android:padding="5dp">
+        <AutoCompleteTextView
+            android:id="@+id/AutoCompleteTextViewLocation"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@style/DetailTransactionTextView"
-            android:text="Type"/>
+            android:layout_weight="7"
+            android:hint="Enter location"
+            android:background="@drawable/abc_ab_stacked_transparent_light_holo"
+            android:ems="8"
+            />
         <Spinner
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/DetailTransactionTypeTextView"
-            android:layout_centerHorizontal="true"/>
+            android:layout_weight="3"
+            android:prompt="@string/spinner_prompt"
+            />
+        </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -71,15 +70,16 @@
             android:layout_height="wrap_content"
             style="@style/DetailTransactionTextView"
             android:text="Outgoing"/>
-        <AutoCompleteTextView
+        <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Outgoing"
+            android:textOff="Outgoing"
+            android:textOn="Incoming"
             android:layout_below="@+id/DetailTransactionOutgoingTextView"
             android:layout_centerHorizontal="true"/>
     </RelativeLayout>
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1.5"/>
     </LinearLayout>
