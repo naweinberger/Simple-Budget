@@ -1,19 +1,14 @@
-package com.example.simplebudget;
+package us.weinberger.natan.simplebudget;
 
 import android.app.Fragment;
-import android.content.DialogInterface;
-import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TableRow;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;

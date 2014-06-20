@@ -1,14 +1,12 @@
-package com.example.simplebudget;
+package us.weinberger.natan.simplebudget;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Display;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -16,8 +14,6 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 //public class StartupFragment extends Fragment {

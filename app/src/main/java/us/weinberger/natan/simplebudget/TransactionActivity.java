@@ -1,17 +1,9 @@
-package com.example.simplebudget;
+package us.weinberger.natan.simplebudget;
 
-import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.DecimalFormat;
-import java.util.Stack;
 
 
 /**

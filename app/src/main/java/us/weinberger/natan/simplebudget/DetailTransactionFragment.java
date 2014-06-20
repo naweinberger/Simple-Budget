@@ -1,9 +1,8 @@
-package com.example.simplebudget;
+package us.weinberger.natan.simplebudget;
 
 import android.app.Fragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

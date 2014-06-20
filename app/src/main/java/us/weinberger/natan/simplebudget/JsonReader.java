@@ -1,11 +1,9 @@
-package com.example.simplebudget;
+package us.weinberger.natan.simplebudget;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
-import android.widget.Toast;
 
 public class JsonReader {
 	public String getJson() {

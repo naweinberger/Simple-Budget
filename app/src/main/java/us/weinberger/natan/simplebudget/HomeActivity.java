@@ -1,4 +1,4 @@
-package com.example.simplebudget;
+package us.weinberger.natan.simplebudget;
 
 import android.app.Activity;
 import android.content.Context;

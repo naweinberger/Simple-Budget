@@ -1,4 +1,4 @@
-package com.example.simplebudget;
+package us.weinberger.natan.simplebudget;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.os.Handler;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;

@@ -5,7 +5,7 @@
     android:orientation="horizontal" >
 
     <fragment
-        class="com.example.simplebudget.FragmentTransactionActivity"
+        class="us.weinberger.natan.simplebudget.FragmentTransactionActivity"
         android:id="@+id/fragment_catalog"
         android:layout_width="0px"
         android:layout_height="match_parent"
@@ -14,7 +14,7 @@
     </fragment>
 
     <fragment
-        class="com.example.simplebudget.FragmentHistoryActivity"
+        class="us.weinberger.natan.simplebudget.FragmentHistoryActivity"
         android:id="@+id/fragment_test"
         android:layout_width="0px"
         android:layout_height="match_parent"

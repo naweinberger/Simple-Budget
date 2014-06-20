@@ -1,4 +1,4 @@
-package com.example.simplebudget;
+package us.weinberger.natan.simplebudget;
 
 import java.io.BufferedReader;
 import java.io.IOException;

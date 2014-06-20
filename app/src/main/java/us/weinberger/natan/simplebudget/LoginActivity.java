@@ -1,4 +1,4 @@
-package com.example.simplebudget;
+package us.weinberger.natan.simplebudget;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,7 +45,9 @@ public class LoginActivity extends Activity {
 	@Override
 	public void onBackPressed() 
 	{
-	    this.finish();
+	    Intent intent = new Intent(this, StartupActivity.class);
+        startActivity(intent);
+        finish();
 	    overridePendingTransition(R.anim.left_slide_in, R.anim.left_slide_out);
 	}
 	

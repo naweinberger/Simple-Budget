@@ -1,4 +1,4 @@
-package com.example.simplebudget;
+package us.weinberger.natan.simplebudget;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

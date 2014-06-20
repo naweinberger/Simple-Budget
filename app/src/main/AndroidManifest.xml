@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.simplebudget"
+    package="us.weinberger.natan.simplebudget"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -17,27 +17,27 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.simplebudget.MainActivity"
+            android:name="us.weinberger.natan.simplebudget.MainActivity"
             android:label="@string/app_name" 
             android:windowSoftInputMode="adjustPan">
         </activity>
         
         <activity
-            android:name="com.example.simplebudget.LoginActivity"
+            android:name="us.weinberger.natan.simplebudget.LoginActivity"
             android:label="@string/app_name" 
             android:windowSoftInputMode="adjustPan"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >        
         </activity>
         
         <activity
-            android:name="com.example.simplebudget.RegisterActivity"
+            android:name="us.weinberger.natan.simplebudget.RegisterActivity"
             android:label="@string/app_name" 
             android:windowSoftInputMode="adjustPan"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >        
         </activity>
         
         <activity
-            android:name="com.example.simplebudget.StartupActivity"
+            android:name="us.weinberger.natan.simplebudget.StartupActivity"
             android:label="@string/app_name" 
             android:windowSoftInputMode="adjustPan"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
@@ -49,14 +49,14 @@
         </activity>
 
         <activity
-            android:name="com.example.simplebudget.HomeActivity"
+            android:name="us.weinberger.natan.simplebudget.HomeActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan"
             android:theme="@android:style/Theme.DeviceDefault.Light.DarkActionBar" >
         </activity>
 
         <activity
-            android:name="com.example.simplebudget.TransactionActivity"
+            android:name="us.weinberger.natan.simplebudget.TransactionActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
