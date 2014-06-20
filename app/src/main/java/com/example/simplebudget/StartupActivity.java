@@ -132,6 +132,7 @@ public class StartupActivity extends Activity {
 	public void pushLogin(View view) {
 		Intent intent = new Intent(this, LoginActivity.class);
 		startActivity(intent);
+        finish();
 		overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
 		
 	}
@@ -139,6 +140,7 @@ public class StartupActivity extends Activity {
 	public void pushRegister(View view) {
 		Intent intent = new Intent(this, RegisterActivity.class);
 		startActivity(intent);
+        finish();
 		overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
 		
 	}
