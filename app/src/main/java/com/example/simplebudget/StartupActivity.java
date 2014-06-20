@@ -3,10 +3,12 @@ package com.example.simplebudget;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Display;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -40,6 +42,12 @@ public class StartupActivity extends Activity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in", "").equals("")) {
+            Intent intent = new Intent(context, HomeActivity.class);
+            intent.putExtra("username", getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in", ""));
+            startActivity(intent);
+            finish();
+        }
         setContentView(R.layout.activity_startup);
 
         logo = (TextView) findViewById(R.id.logoTV);

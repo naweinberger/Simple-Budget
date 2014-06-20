@@ -21,6 +21,7 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home);
 
+        //getActionBar().setIcon(R.drawable.ic_launcher);
         TextView logo = (TextView) findViewById(R.id.logoHome);
         Typeface roboFont = Typeface.createFromAsset(context.getAssets(), "Roboto-Thin.ttf");
         logo.setTypeface(roboFont);

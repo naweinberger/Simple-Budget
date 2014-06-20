@@ -15,10 +15,12 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -28,11 +30,15 @@ public class LoginActivity extends Activity {
 	boolean validUser = false;
 	Context context = LoginActivity.this;
 	boolean success = false;
+    CheckBox rememberMe;
+    boolean rememberMeChecked = false;
+    SharedPreferences pref;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_login);
+
 
 	}
 	
@@ -49,6 +55,9 @@ public class LoginActivity extends Activity {
 		
 		username = usernameET.getText().toString();
 		password = passwordET.getText().toString();
+
+        rememberMe = (CheckBox) findViewById(R.id.rememberMe);
+        if (rememberMe.isChecked()) rememberMeChecked = true;
 		String tag = "login";
 
         if (username.contains(";") || password.contains(";")) {
@@ -111,9 +120,16 @@ public class LoginActivity extends Activity {
 
         @Override
         protected void onPostExecute(Integer code) {
-            if (code.intValue() == 0) {
+            if (code.intValue() == 0) { //value 0 means success
                 Intent intent = new Intent(context, HomeActivity.class);
                 intent.putExtra("username", username);
+                if (rememberMeChecked) {
+                    pref = getApplicationContext().getSharedPreferences("SBPref", 0);
+                    SharedPreferences.Editor editor = pref.edit();
+                    editor.putString("logged_in", ""+username);
+                    editor.commit();
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                }
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);

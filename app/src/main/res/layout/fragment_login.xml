@@ -81,5 +81,16 @@
         android:layout_toRightOf="@+id/passwordET"
         android:layout_marginLeft="20sp"/>
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember me"
+        android:id="@+id/rememberMe"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/passwordET"
+        android:layout_alignStart="@+id/passwordET"
+        android:checked="false"
+        android:textColor="#ffffff" />
+
 
 </RelativeLayout>
