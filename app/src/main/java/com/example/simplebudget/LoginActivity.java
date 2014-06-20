@@ -75,8 +75,9 @@ public class LoginActivity extends Activity {
 		Intent intent = new Intent(this, RegisterActivity.class);
 		startActivity(intent);
 	}
-	private class LoginClient extends AsyncTask<String, Void, Integer> {
+	public class LoginClient extends AsyncTask<String, Void, Integer> {
 		private final String indexUrl = "http://natan.weinberger.us/simplebudget/index.php";
+
 		@Override
 		protected Integer doInBackground(String... params) {
 			String mUser = params[0];
@@ -126,7 +127,8 @@ public class LoginActivity extends Activity {
                 if (rememberMeChecked) {
                     pref = getApplicationContext().getSharedPreferences("SBPref", 0);
                     SharedPreferences.Editor editor = pref.edit();
-                    editor.putString("logged_in", ""+username);
+                    editor.putString("logged_in_username", ""+username);
+                    editor.putString("logged_in_password", ""+password);
                     editor.commit();
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 }

@@ -74,7 +74,8 @@ public class HomeActivity extends Activity {
     private void logout() {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("SBPref", 0);
         SharedPreferences.Editor editor = pref.edit();
-        editor.remove("logged_in");
+        editor.remove("logged_in_username");
+        editor.remove("logged_in_password");
         editor.commit();
         Intent intent = new Intent(this, StartupActivity.class);
         startActivity(intent);
