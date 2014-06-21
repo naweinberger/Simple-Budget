@@ -8,12 +8,15 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Natan on 6/8/2014.
@@ -71,6 +74,15 @@ public class HomeActivity extends Activity {
         startActivity(intent);
         overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
 
+    }
+
+    public void viewHistory(View view) {
+        DownloadClient client = new DownloadClient(HomeActivity.this);
+        client.execute();
+        ArrayList<Transaction> transactionList = DownloadClient.transactionList;
+        for (Transaction transaction : transactionList) {
+            Log.d("TEST", transaction.getLocation());
+        }
     }
 
     private void logout() {

@@ -231,7 +231,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     	
     	
     	if (tab.getPosition() == 1) {
-    		download();
+    		//download();
     		
     		list = (ListView) findViewById(R.id.listView1);
             
@@ -259,7 +259,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 				    			}	
 				    		}).start();
 				            
-				            download();
+				            //download();
 				        }
 				    });
 				    
@@ -341,116 +341,10 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             return null;
         }
     }
-    
-    public class DownloadClient extends AsyncTask<Void, Void, Void>{
-    	private static final String downloadUrl = "http://natan.weinberger.us/simplebudget/download.php";
-    	
-    	@Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            // Showing progress dialog
-            pDialog = new ProgressDialog(MainActivity.this);
-            pDialog.setMessage("Please wait...");
-            pDialog.setCancelable(true);
-            pDialog.show();
 
-        }
-        
-    	@Override
-    	protected Void doInBackground(Void... params) {
-    		DefaultHttpClient client = new DefaultHttpClient();
-    		HttpPost httpPost = new HttpPost(downloadUrl);
-    		List<BasicNameValuePair> parameters = new ArrayList<BasicNameValuePair>();
-    		parameters.add(new BasicNameValuePair("user", user));
-    		
-    		try{
-    			httpPost.setEntity(new UrlEncodedFormEntity(parameters));
-    		}
-    		catch(Exception e){
-    			System.out.println(e);
-    		}
-    		ResponseHandler<String> responseHandler = new BasicResponseHandler();
-    		try {
-    			String response = client.execute(httpPost, responseHandler);
-    		} catch (ClientProtocolException e) {
-    			e.printStackTrace();
-    		} catch (IOException e) {
-    			e.printStackTrace();
-    		}
-    		
-    		try {
-    			HttpResponse response = client.execute(httpPost);
-    			jsonResult = inputStreamToString(response.getEntity().getContent()).toString();
-    		}
-    		catch (Exception e) {
-    			e.printStackTrace();
-    		}
-    		return null;
-    	}
-    	
-    	private StringBuilder inputStreamToString(InputStream is) {
-    		   String rLine = "";
-    		   StringBuilder answer = new StringBuilder();
-    		   BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-    		 
-    		   try {
-    		    while ((rLine = rd.readLine()) != null) {
-    		     answer.append(rLine);
-    		    }
-    		   }
-    		 
-    		   catch (IOException e) {
-    		    // e.printStackTrace();
-    		    Toast.makeText(getApplicationContext(),
-    		      "Error..." + e.toString(), Toast.LENGTH_LONG).show();
-    		   }
-    		   return answer;
-    		  }
-    		 
-    		  @Override
-    		  protected void onPostExecute(Void v) {
-    		   makeList();
-    		   if (pDialog.isShowing())
-                   pDialog.dismiss();
-    		  }
-    		 }
-    
-    public void makeList() {
-    	ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
-    	 
-    	  try {
-    		  Log.d("MAKELIST", user);
-    	   JSONObject jsonResponse = new JSONObject(jsonResult);
-    	   Log.d("MAKELIST", jsonResponse.toString());
-    	   JSONArray jsonMainNode = jsonResponse.optJSONArray(user);
-    	   Log.d("MAKELIST", jsonMainNode.toString());
-    	   for (int i = 0; i < jsonMainNode.length(); i++) {
-    	    JSONObject jsonChildNode = jsonMainNode.getJSONObject(i);
-    	    amount = jsonChildNode.optString("amount");
-    	    location = jsonChildNode.optString("location");
-    	    date = jsonChildNode.optString("date");
-    	    outgoing = jsonChildNode.optString("outgoing");
-    	    id = jsonChildNode.optString("id");
-    	    transactionList.add(TransactionClient.createRecord(amount, location, date, outgoing, id));
-    	   }
-    	  } catch (JSONException e) {
-//    	   Toast.makeText(getApplicationContext(), "Error" + e.toString(),
-//    	     Toast.LENGTH_LONG).show();
-    	   Log.d("MAKELIST", e.toString());
-    	  }
-    	  
-    	  transactions = transactionList;
-    	  list.setAdapter(new MyBaseAdapter(context, transactions));
-    	  
-    }
-    
-    
-
-
- 
-    private void download() {
-    	DownloadClient mClient = new DownloadClient();
-    	mClient.execute();
-    }
+//    public static void download() {
+//    	DownloadClient mClient = new DownloadClient();
+//    	mClient.execute();
+//    }
 
 }

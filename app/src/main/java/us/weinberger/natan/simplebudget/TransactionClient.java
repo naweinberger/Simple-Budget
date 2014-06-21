@@ -1,5 +1,7 @@
 package us.weinberger.natan.simplebudget;
 
+import android.util.Log;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +13,16 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class TransactionClient  {
 	private static final String uploadUrl = "http://natan.weinberger.us/simplebudget/upload.php";
 	private static final String downloadUrl = "http://natan.weinberger.us/simplebudget/download.php";
 	private static final String deleteUrl = "http://natan.weinberger.us/simplebudget/delete.php";
+
 	
 	public static void upload(Transaction newEntry, String user) {
 		
@@ -83,5 +89,7 @@ public class TransactionClient  {
         }
         return newTransaction;
     }
+
+
 
 }
