@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -19,8 +20,11 @@ import java.util.Date;
  */
 public class DetailTransactionFragment extends Fragment {
     static TextView amountDetailTV, locationTV, dateTV, typeTV;
-    String amountString;
-    private int mYear, mMonth, mDay;
+    static String amountString;
+    private static int mYear, mMonth, mDay;
+    static AutoCompleteTextView locationET;
+    static String date = "test";
+    static Button datePickerButton;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class DetailTransactionFragment extends Fragment {
         typeTV = (TextView) v.findViewById(R.id.DetailTransactionTypeTextView);
         //outgoingTV = (TextView) v.findViewById(R.id.DetailTransactionOutgoingTextView);
 
+        locationET = (AutoCompleteTextView) v.findViewById(R.id.AutoCompleteTextViewLocation);
+
         TextView[] textViews = {addPurchaseTV, amountDetailTV, locationTV, dateTV, typeTV};
 
         Typeface roboFont = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.ttf");
@@ -42,7 +48,7 @@ public class DetailTransactionFragment extends Fragment {
 
         amountDetailTV.setText(amountString);
 
-        final Button datePickerButton = (Button) v.findViewById(R.id.datePickerButton);
+        datePickerButton = (Button) v.findViewById(R.id.datePickerButton);
         datePickerButton.setTypeface(roboFont);
         datePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +75,15 @@ public class DetailTransactionFragment extends Fragment {
         amountDetailTV.setText(text);
     }
     */
+
+    public static Transaction createTransaction() {
+        Transaction transaction = new Transaction();
+        transaction.setAmount(amountString);
+        transaction.setLocation(locationET.getText().toString());
+        date = datePickerButton.getText().toString();
+        transaction.setDate(date);
+        return transaction;
+    }
 
 
 }

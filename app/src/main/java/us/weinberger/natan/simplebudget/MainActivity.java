@@ -116,23 +116,9 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 		newEntry.icon = icon;
 		//transactions.add(newEntry);
 		
-		new Thread(new Runnable() {
 
-			@Override
-			public void run() {
-				try{
-					TransactionClient.upload(newEntry, user);
-					
-				}
-				catch(Exception e) {
-					
-				}
-	
-			}
-			
-		}).start();
-		
-		
+
+
 		clearEntries(view);
 		
 	}

@@ -19,19 +19,21 @@ import org.json.JSONObject;
 
 
 public class TransactionClient  {
-	private static final String uploadUrl = "http://natan.weinberger.us/simplebudget/upload.php";
+	private static final String uploadUrl = "http://natan.weinberger.us/simplebudget/index.php";
 	private static final String downloadUrl = "http://natan.weinberger.us/simplebudget/download.php";
 	private static final String deleteUrl = "http://natan.weinberger.us/simplebudget/delete.php";
 
 	
-	public static void upload(Transaction newEntry, String user) {
-		
+	public static void upload(Transaction newEntry, String username, String password) {
+
 		List<BasicNameValuePair> parameters = new ArrayList<BasicNameValuePair>();
-		parameters.add(new BasicNameValuePair("user", user));
+		parameters.add(new BasicNameValuePair("username", username));
+        parameters.add(new BasicNameValuePair("password", password));
 		parameters.add(new BasicNameValuePair("amount", newEntry.getAmount()));
 		parameters.add(new BasicNameValuePair("location", newEntry.getLocation()));
 		parameters.add(new BasicNameValuePair("date", newEntry.getDate()));
-		parameters.add(new BasicNameValuePair("outgoing", String.valueOf(newEntry.isOutgoing())));
+		//parameters.add(new BasicNameValuePair("outgoing", String.valueOf(newEntry.isOutgoing())));
+        parameters.add(new BasicNameValuePair("tag", "upload"));
 
 		DefaultHttpClient client = new DefaultHttpClient();
 		HttpPost httpPost = new HttpPost(uploadUrl);
@@ -44,6 +46,7 @@ public class TransactionClient  {
 		ResponseHandler<String> responseHandler = new BasicResponseHandler();
 		try {
 			String response = client.execute(httpPost, responseHandler);
+            Log.d("transaction stuff", response);
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
