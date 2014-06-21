@@ -431,7 +431,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     	    date = jsonChildNode.optString("date");
     	    outgoing = jsonChildNode.optString("outgoing");
     	    id = jsonChildNode.optString("id");
-    	    transactionList.add(createRecord(amount, location, date, outgoing, id));
+    	    transactionList.add(TransactionClient.createRecord(amount, location, date, outgoing, id));
     	   }
     	  } catch (JSONException e) {
 //    	   Toast.makeText(getApplicationContext(), "Error" + e.toString(),
@@ -445,22 +445,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
     }
     
     
-    private Transaction createRecord(String amount, String location, String date, String outgoing, String id) {
-    	  Transaction newTransaction = new Transaction();
-    	  newTransaction.setAmount(amount);
-    	  newTransaction.setLocation(location);
-    	  newTransaction.setDate(date);
-    	  newTransaction.setOutgoing(outgoing);
-    	  newTransaction.setId(id);
-    	  if (newTransaction.isOutgoing().equals("true")) {
-    		  newTransaction.setIcon(R.drawable.button_minus_red);
-    	  }
-    	  
-    	  else {
-    		  newTransaction.setIcon(R.drawable.button_plus_green);
-    	  }
-    	  return newTransaction;
-    	 }
+
 
  
     private void download() {

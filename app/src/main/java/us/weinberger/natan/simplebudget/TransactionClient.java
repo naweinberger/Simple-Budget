@@ -67,4 +67,21 @@ public class TransactionClient  {
 		}
 	}
 
+    public static Transaction createRecord(String amount, String location, String date, String outgoing, String id) {
+        Transaction newTransaction = new Transaction();
+        newTransaction.setAmount(amount);
+        newTransaction.setLocation(location);
+        newTransaction.setDate(date);
+        newTransaction.setOutgoing(outgoing);
+        newTransaction.setId(id);
+        if (newTransaction.isOutgoing().equals("true")) {
+            newTransaction.setIcon(R.drawable.button_minus_red);
+        }
+
+        else {
+            newTransaction.setIcon(R.drawable.button_plus_green);
+        }
+        return newTransaction;
+    }
+
 }

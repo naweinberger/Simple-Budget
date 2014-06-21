@@ -1,9 +1,16 @@
 package us.weinberger.natan.simplebudget;
 
+import android.app.DatePickerDialog;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.text.format.DateFormat;
+import android.text.format.Time;
 import android.view.View;
+import android.widget.DatePicker;
+import android.widget.Toast;
+
+import java.util.Date;
 
 
 /**
@@ -60,7 +67,7 @@ public class TransactionActivity extends FragmentActivity {
     }
 
 
-    public void advanceTransaction (View view) {
+    public void advanceTransaction(View view) {
         Bundle args = new Bundle();
         args.putString("AMT", NumpadFragment.getAmountText());
         final DetailTransactionFragment detailTransactionFragment = new DetailTransactionFragment();

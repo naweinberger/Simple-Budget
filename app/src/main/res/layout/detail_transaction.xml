@@ -51,6 +51,14 @@
             android:layout_height="wrap_content"
             style="@style/DetailTransactionTextView"
             android:text="Location"/>
+        <TextView
+            android:id="@+id/DetailTransactionTypeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            style="@style/DetailTransactionTextView"
+            android:text="Type"
+            android:layout_marginRight="5dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,13 +75,15 @@
             android:ems="8"
             />
         <Spinner
+            android:id="@+id/typeSpinner"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:spinnerStyle="@android:style/Widget.Holo.Spinner"
-            />
+            android:spinnerStyle="@android:style/Widget.Holo.Spinner"/>
         </LinearLayout>
+
     </RelativeLayout>
+    <!--
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -92,6 +102,39 @@
             android:layout_below="@+id/DetailTransactionOutgoingTextView"
             android:layout_centerHorizontal="true"/>
     </RelativeLayout>
+    -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/DetailTransactionDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/DetailTransactionTextView"
+            android:text="Date"/>
+        <Space
+            android:id="@+id/space"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_alignRight="@+id/DetailTransactionDateTextView"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/datePickerButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/DetailTransactionDateTextView"
+            android:layout_alignLeft="@+id/space"
+
+            style="@android:style/Widget.Holo.Spinner"
+            android:text="6/20/2014"
+            android:textSize="30dp"
+            android:textColor="#ffffff"/>
+    </RelativeLayout>
+
+
+
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
