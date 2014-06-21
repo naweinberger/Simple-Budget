@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class HomeActivity extends Activity {
     Context context = HomeActivity.this;
-    String username;
+    String username, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +46,7 @@ public class HomeActivity extends Activity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         username = extras.getString("username");
+        password = extras.getString("password");
 
     }
 
@@ -71,18 +72,26 @@ public class HomeActivity extends Activity {
     public void addTransaction(View view) {
         Intent intent = new Intent(this, TransactionActivity.class);
         intent.putExtra("username", username);
+        intent.putExtra("password", password);
         startActivity(intent);
         overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
 
     }
 
     public void viewHistory(View view) {
-        DownloadClient client = new DownloadClient(HomeActivity.this);
-        client.execute();
-        ArrayList<Transaction> transactionList = DownloadClient.transactionList;
-        for (Transaction transaction : transactionList) {
-            Log.d("TEST", transaction.getLocation());
-        }
+        Intent intent = new Intent(this, HistoryActivity.class);
+        intent.putExtra("username", username);
+        intent.putExtra("password", password);
+        startActivity(intent);
+        overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
+
+
+//        DownloadClient client = new DownloadClient(HomeActivity.this);
+//        client.execute();
+//        ArrayList<Transaction> transactionList = DownloadClient.transactionList;
+//        for (Transaction transaction : transactionList) {
+//            Log.d("TEST", transaction.getLocation());
+//        }
     }
 
     private void logout() {

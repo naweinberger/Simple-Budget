@@ -42,7 +42,8 @@ public class StartupActivity extends Activity {
             String username = getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in_username", "");
             String password = getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in_password", "");
             Intent intent = new Intent(context, HomeActivity.class);
-            intent.putExtra("username", getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in", ""));
+            intent.putExtra("username", getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in_username", ""));
+            intent.putExtra("password", getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in_password",""));
             startActivity(intent);
             finish();
         }
