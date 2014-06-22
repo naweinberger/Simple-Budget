@@ -2,15 +2,21 @@ package us.weinberger.natan.simplebudget;
 
 import android.app.DatePickerDialog;
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -25,6 +31,8 @@ public class DetailTransactionFragment extends Fragment {
     static AutoCompleteTextView locationET;
     static String date = "test";
     static Button datePickerButton;
+    ImageButton completeTransactionButton;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,6 +55,14 @@ public class DetailTransactionFragment extends Fragment {
         for (TextView textView : textViews) textView.setTypeface(roboFont);
 
         amountDetailTV.setText(amountString);
+
+        completeTransactionButton = (ImageButton) v.findViewById(R.id.completeTransactionButton);
+        completeTransactionButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                completeTransaction(v);
+            }
+        });
 
         datePickerButton = (Button) v.findViewById(R.id.datePickerButton);
         datePickerButton.setTypeface(roboFont);
@@ -83,6 +99,52 @@ public class DetailTransactionFragment extends Fragment {
         date = datePickerButton.getText().toString();
         transaction.setDate(date);
         return transaction;
+    }
+
+    public void completeTransaction(View view) {
+        final Transaction transaction = DetailTransactionFragment.createTransaction();
+        final String username = getActivity().getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in_username", "");
+        final String password = getActivity().getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in_password", "");
+
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try{
+                    boolean success = TransactionClient.upload(transaction, username, password);
+                    Log.d("TEST", String.valueOf(success));
+
+                    if (success) {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getActivity().getApplicationContext(), "Transaction added.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        Intent intent = new Intent(getActivity(), HomeActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                        getActivity().overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
+                        getActivity().finish();
+
+                    }
+                    else {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(getActivity().getApplicationContext(), "Network error. Please try again.", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                    }
+                }
+                catch(Exception e) {
+                }
+            }
+
+        }).start();
+
     }
 
 

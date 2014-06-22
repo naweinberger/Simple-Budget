@@ -44,9 +44,8 @@ public class HomeActivity extends Activity {
         analysisFeatures.setTypeface(roboFont);
 
         Intent intent = getIntent();
-        Bundle extras = intent.getExtras();
-        username = extras.getString("username");
-        password = extras.getString("password");
+        username = getSharedPreferences("SBPref", 0).getString("logged_in_username", "");
+        password = getSharedPreferences("SBPref", 0).getString("logged_in_password", "");
 
     }
 

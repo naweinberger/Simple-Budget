@@ -22,9 +22,9 @@ public class TransactionClient  {
 	private static final String uploadUrl = "http://natan.weinberger.us/simplebudget/index.php";
 	private static final String downloadUrl = "http://natan.weinberger.us/simplebudget/download.php";
 	private static final String deleteUrl = "http://natan.weinberger.us/simplebudget/delete.php";
-
+    static String response;
 	
-	public static void upload(Transaction newEntry, String username, String password) {
+	public static boolean upload(Transaction newEntry, String username, String password) {
 
 		List<BasicNameValuePair> parameters = new ArrayList<BasicNameValuePair>();
 		parameters.add(new BasicNameValuePair("username", username));
@@ -45,13 +45,22 @@ public class TransactionClient  {
 		}
 		ResponseHandler<String> responseHandler = new BasicResponseHandler();
 		try {
-			String response = client.execute(httpPost, responseHandler);
-            Log.d("transaction stuff", response);
+			response = client.execute(httpPost, responseHandler);
+
+
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+        if (response.equals("success")) {
+            return true;
+        }
+        else {
+            return false;
+        }
+
 	}
 	
 	public static void delete(Transaction newEntry, String user) {

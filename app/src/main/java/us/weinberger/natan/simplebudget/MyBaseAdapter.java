@@ -3,6 +3,7 @@ package us.weinberger.natan.simplebudget;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -57,6 +58,12 @@ public class MyBaseAdapter extends BaseAdapter {
 		mViewHolder.date = detail(convertView, R.id.date, list.get(position).getDate());
 		mViewHolder.location = detail(convertView, R.id.location, list.get(position).getLocation());
 		mViewHolder.icon = detail(convertView, R.id.typeTransaction, list.get(position).getIcon());
+
+//        Typeface roboFont = Typeface.createFromAsset(context.getAssets(), "Roboto-Thin.ttf");
+//        mViewHolder.amount.setTypeface(roboFont);
+//        mViewHolder.date.setTypeface(roboFont);
+//        mViewHolder.location.setTypeface(roboFont);
+
 		return convertView;
 	}
 

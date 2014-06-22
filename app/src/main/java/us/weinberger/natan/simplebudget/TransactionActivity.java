@@ -80,28 +80,6 @@ public class TransactionActivity extends FragmentActivity {
         //detailTransactionFragment.setAmountDetailText(amountString);
     }
 
-    public void completeTransaction(View view) {
-        final Transaction transaction = DetailTransactionFragment.createTransaction();
-        final String username = getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in_username", "");
-        final String password = getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in_password", "");
 
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-                try{
-
-                    TransactionClient.upload(transaction, username, password);
-
-                }
-                catch(Exception e) {
-
-                }
-
-            }
-
-        }).start();
-
-    }
 
 }

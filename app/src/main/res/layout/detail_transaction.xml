@@ -21,12 +21,12 @@
         android:gravity="center_vertical"
         android:paddingLeft="10dp" />
     <ImageButton
+        android:id="@+id/completeTransactionButton"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:layout_gravity="right"
-        android:src="@drawable/btn_check_buttonless_on"
-        android:onClick="completeTransaction"/>
+        android:src="@drawable/btn_check_buttonless_on"/>
     </LinearLayout>
 
     <TextView

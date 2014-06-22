@@ -89,6 +89,7 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void v) {
         transactionList = makeList();
+        HistoryListFragment.list.setAdapter(new MyBaseAdapter(context, transactionList));
     }
 
     public static ArrayList<Transaction> makeList() {
