@@ -8,10 +8,22 @@
         revision="19.1.0"
         sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
     <item
+        dex="C:\Users\Natan\SimpleBudget\Simple-Budget\app\build\intermediates\pre-dexed\debug\classes-2819733b9fd3d5cdc3ecd8605ecc57d18610b3f0.jar"
+        jar="C:\Users\Natan\SimpleBudget\Simple-Budget\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+    <item
         dex="C:\Users\Natan\Android\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-09d00d74933da2ae8934bae35efe303691f184bd.jar"
         jar="C:\Program Files (x86)\Android Studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="C:\Users\Natan\SimpleBudget\Simple-Budget\app\build\intermediates\pre-dexed\debug\classes-f6fa91cc244cd9da22955017ff07725f0c8b047e.jar"
+        jar="C:\Users\Natan\SimpleBudget\Simple-Budget\build\intermediates\exploded-aar\com.mobeta.android.dslv\drag-sort-listview\0.6.1\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="5c5d10d10e00ac48b7cfddcf16a46dd3432d6b99"/>
 
 </pre-dex-items>
