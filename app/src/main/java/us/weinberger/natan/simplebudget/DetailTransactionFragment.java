@@ -3,6 +3,7 @@ package us.weinberger.natan.simplebudget;
 import android.app.DatePickerDialog;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.media.Image;
 import android.os.Bundle;
@@ -11,13 +12,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -31,6 +35,7 @@ public class DetailTransactionFragment extends Fragment {
     static AutoCompleteTextView locationET;
     static String date = "test";
     static Button datePickerButton;
+    Spinner typeSpinner;
     ImageButton completeTransactionButton;
 
     @Override
@@ -46,8 +51,28 @@ public class DetailTransactionFragment extends Fragment {
         dateTV = (TextView) v.findViewById(R.id.DetailTransactionDateTextView);
         typeTV = (TextView) v.findViewById(R.id.DetailTransactionTypeTextView);
         //outgoingTV = (TextView) v.findViewById(R.id.DetailTransactionOutgoingTextView);
-
+        typeSpinner = (Spinner) v.findViewById(R.id.typeSpinner);
         locationET = (AutoCompleteTextView) v.findViewById(R.id.AutoCompleteTextViewLocation);
+
+
+        SharedPreferences prefs = getActivity().getSharedPreferences("SBPref", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("types", "Food;Gas;");
+        editor.putString("places", "Giant;CVS;");
+        editor.commit();
+
+        ArrayList<String> placesList = new ArrayList<String>();
+        String serializedPlacesArray = getActivity().getApplicationContext().getSharedPreferences("SBPref", 0).getString("places", "");
+        placesList = Functions.deserializeArray(serializedPlacesArray);
+        ArrayAdapter<String> placesAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, placesList);
+
+        locationET.setAdapter(placesAdapter);
+
+        ArrayList<String> typesList = new ArrayList<String>();
+        String serializedTypesArray = getActivity().getApplicationContext().getSharedPreferences("SBPref", 0).getString("types", "");
+        typesList = Functions.deserializeArray(serializedTypesArray);
+        ArrayAdapter<String> typesAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, typesList);
+        typeSpinner.setAdapter(typesAdapter);
 
         TextView[] textViews = {addPurchaseTV, amountDetailTV, locationTV, dateTV, typeTV};
 
@@ -92,6 +117,8 @@ public class DetailTransactionFragment extends Fragment {
     }
     */
 
+
+
     public static Transaction createTransaction() {
         Transaction transaction = new Transaction();
         transaction.setAmount(amountString);
@@ -102,7 +129,7 @@ public class DetailTransactionFragment extends Fragment {
     }
 
     public void completeTransaction(View view) {
-        final Transaction transaction = DetailTransactionFragment.createTransaction();
+        final Transaction transaction = createTransaction();
         final String username = getActivity().getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in_username", "");
         final String password = getActivity().getApplicationContext().getSharedPreferences("SBPref", 0).getString("logged_in_password", "");
 

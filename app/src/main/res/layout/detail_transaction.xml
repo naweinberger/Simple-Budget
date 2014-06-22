@@ -59,7 +59,7 @@
             style="@style/DetailTransactionTextView"
             android:text="Type"
             android:layout_marginRight="5dp"/>
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/DetailTransactionLocationTextView"
@@ -67,20 +67,24 @@
             android:orientation="horizontal">
         <AutoCompleteTextView
             android:id="@+id/AutoCompleteTextViewLocation"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
             android:layout_weight="7"
+            android:gravity="bottom"
             android:hint="Enter location"
             style="@android:style/Widget.Holo.EditText"
-            android:ems="8"
+
             />
         <Spinner
             android:id="@+id/typeSpinner"
-            android:layout_width="0dp"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/AutoCompleteTextViewLocation"
+            android:layout_alignBottom="@+id/AutoCompleteTextViewLocation"
             android:spinnerStyle="@android:style/Widget.Holo.Spinner"/>
-        </LinearLayout>
+        </RelativeLayout>
 
     </RelativeLayout>
     <!--
@@ -114,18 +118,14 @@
             android:layout_height="wrap_content"
             style="@style/DetailTransactionTextView"
             android:text="Date"/>
-        <Space
-            android:id="@+id/space"
-            android:layout_width="1dp"
-            android:layout_height="1dp"
-            android:layout_alignRight="@+id/DetailTransactionDateTextView"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/datePickerButton"
             android:layout_gravity="center_horizontal"
             android:layout_below="@+id/DetailTransactionDateTextView"
-            android:layout_alignLeft="@+id/space"
+            android:layout_alignLeft="@+id/DetailTransactionDateTextView"
+            android:layout_marginLeft="5dp"
 
             style="@android:style/Widget.Holo.Spinner"
             android:text="6/20/2014"
