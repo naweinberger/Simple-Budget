@@ -1,5 +1,7 @@
 package us.weinberger.natan.simplebudget;
 
+import android.app.Activity;
+
 import java.util.ArrayList;
 
 /**
@@ -30,5 +32,22 @@ public class Functions {
             }
         }
         return list;
+    }
+
+    public static String addToSerializedArray (String array, String newStr) {
+        return array+newStr+";";
+    }
+
+    public static String removeFromSerializedArray(String array, String removeStr) {
+        if (array.length() > removeStr.length()) {
+            for (int i = 0; i < array.length()-removeStr.length(); i++) {
+                if (array.substring(i, i+removeStr.length()+2).equals(";"+removeStr+";")) {
+                    String returnString = array.substring(0, i) + array.substring(i+removeStr.length()+1);
+                    return returnString;
+                }
+            }
+        }
+
+        return array;
     }
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Tags">
+
+        <EditTextPreference
+            android:key="add_type_preference"
+            android:title="Add a type"/>
+            <!--android:summary="summary_checkbox_preference" -->
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="PreferenceCategory B">
+
+        <MultiSelectListPreference
+            android:key="multiselectlist_preference"
+            android:title="Remove a tag"
+            android:dialogTitle="Select tags to remove" />
+        <!--android:summary="summary_multiselectlist_preference"-->
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="PreferenceCategory B">
+
+        <Preference
+            android:key="load_tags_remove"
+            android:title="Remove a tag"
+            android:dialogTitle="Select tags to remove" />
+        <!--android:summary="summary_multiselectlist_preference"-->
+
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:compat="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_settings"
+        android:icon="@drawable/abc_list_selector_holo_light"
+        android:title="Settings"
+        android:showAsAction="never"/>
     <item android:id="@+id/action_logout"
-    android:icon="@drawable/abc_menu_dropdown_panel_holo_dark"
-    android:title="Logout"
-    android:showAsAction="never"/>
+        android:icon="@drawable/abc_menu_dropdown_panel_holo_dark"
+        android:title="Logout"
+        android:showAsAction="never"/>
 </menu>

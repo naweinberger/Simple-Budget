@@ -57,8 +57,6 @@ public class DetailTransactionFragment extends Fragment {
 
         SharedPreferences prefs = getActivity().getSharedPreferences("SBPref", 0);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("types", "Food;Gas;");
-        editor.putString("places", "Giant;CVS;");
         editor.commit();
 
         ArrayList<String> placesList = new ArrayList<String>();

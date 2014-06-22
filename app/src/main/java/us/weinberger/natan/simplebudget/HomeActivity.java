@@ -27,6 +27,14 @@ public class HomeActivity extends Activity {
     String username, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (getSharedPreferences("SBPref", 0).getString("types", " ").length() < 1) {
+            SharedPreferences prefs = getSharedPreferences("SBPref", 0);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("types", ";");
+            editor.commit();
+
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home);
 
@@ -47,6 +55,9 @@ public class HomeActivity extends Activity {
         username = getSharedPreferences("SBPref", 0).getString("logged_in_username", "");
         password = getSharedPreferences("SBPref", 0).getString("logged_in_password", "");
 
+
+
+
     }
 
     @Override
@@ -62,6 +73,11 @@ public class HomeActivity extends Activity {
         switch (item.getItemId()) {
             case R.id.action_logout:
                 logout();
+                return true;
+            case R.id.action_settings:
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
