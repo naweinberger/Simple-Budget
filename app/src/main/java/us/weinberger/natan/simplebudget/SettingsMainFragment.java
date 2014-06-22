@@ -1,24 +1,14 @@
 package us.weinberger.natan.simplebudget;
 
-import android.app.Fragment;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
-import android.preference.ListPreference;
 import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.EditText;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by Natan on 6/21/2014.
@@ -63,7 +53,8 @@ public class SettingsMainFragment extends PreferenceFragment {
         removeTagsPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsTagsFragment()).commit();
+                Intent intent = new Intent(getActivity(), SettingsTagsActivity.class);
+                startActivity(intent);
 
                 return false;
             }
