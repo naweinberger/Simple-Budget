@@ -1,5 +1,6 @@
 package us.weinberger.natan.simplebudget;
 
+import android.content.Context;
 import android.util.Log;
 
 import java.io.IOException;
@@ -21,8 +22,13 @@ import org.json.JSONObject;
 public class TransactionClient  {
 	private static final String uploadUrl = "http://natan.weinberger.us/simplebudget/index.php";
 	private static final String downloadUrl = "http://natan.weinberger.us/simplebudget/download.php";
-	private static final String deleteUrl = "http://natan.weinberger.us/simplebudget/delete.php";
+	private static final String deleteUrl = "http://natan.weinberger.us/simplebudget/index.php";
     static String response;
+    private static Context context;
+
+    public TransactionClient(Context c) {
+        context = c;
+    }
 	
 	public static boolean upload(Transaction newEntry, String username, String password) {
 
@@ -63,10 +69,13 @@ public class TransactionClient  {
 
 	}
 	
-	public static void delete(Transaction newEntry, String user) {
+	public static void delete(Transaction newEntry, String username, String password) {
+        Log.d("TEST", "1");
 		List<BasicNameValuePair> parameters = new ArrayList<BasicNameValuePair>();
-		parameters.add(new BasicNameValuePair("user", user));
+		parameters.add(new BasicNameValuePair("username", username));
+        parameters.add(new BasicNameValuePair("password", password));
 		parameters.add(new BasicNameValuePair("id", newEntry.getId()));
+        parameters.add(new BasicNameValuePair("tag", "delete"));
 		DefaultHttpClient client = new DefaultHttpClient();
 		HttpPost httpPost = new HttpPost(deleteUrl);
 		try{
@@ -78,6 +87,9 @@ public class TransactionClient  {
 		ResponseHandler<String> responseHandler = new BasicResponseHandler();
 		try {
 			String response = client.execute(httpPost, responseHandler);
+            //if response = success... else error
+            final DownloadClient downloadClient = new DownloadClient(context);
+            downloadClient.execute();
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

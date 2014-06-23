@@ -67,7 +67,7 @@
             android:orientation="horizontal">
         <AutoCompleteTextView
             android:id="@+id/AutoCompleteTextViewLocation"
-            android:layout_width="200dp"
+            android:layout_width="210dp"
             android:layout_height="wrap_content"
             android:layout_weight="7"
             android:gravity="bottom"
@@ -83,7 +83,8 @@
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/AutoCompleteTextViewLocation"
             android:layout_alignBottom="@+id/AutoCompleteTextViewLocation"
-            android:spinnerStyle="@android:style/Widget.Holo.Spinner"/>
+            android:spinnerStyle="@android:style/Widget.Holo.Spinner"
+            android:layout_toRightOf="@+id/AutoCompleteTextViewLocation" />
         </RelativeLayout>
 
     </RelativeLayout>

@@ -238,7 +238,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
 				    			@Override
 				    			public void run() {
 				    				try{
-				    					TransactionClient.delete(transactions.get(position), user);	
+				    					//TransactionClient.delete(transactions.get(position), user);
 				    				}
 				    				catch(Exception e) {		
 				    				}
