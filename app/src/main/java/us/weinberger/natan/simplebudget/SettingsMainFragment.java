@@ -22,8 +22,8 @@ public class SettingsMainFragment extends PreferenceFragment {
 
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.user_settings);
-        setTypeListEntries();
-        multiSelectListPreference = (MultiSelectListPreference) findPreference("multiselectlist_preference");
+        //setTypeListEntries();
+        //multiSelectListPreference = (MultiSelectListPreference) findPreference("multiselectlist_preference");
 
         final EditTextPreference addTagEditText = (EditTextPreference) findPreference("add_type_preference");
         addTagEditText.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
@@ -36,7 +36,7 @@ public class SettingsMainFragment extends PreferenceFragment {
                 editor.remove("types");
                 editor.putString("types", tagToAdd);
                 editor.commit();
-                setTypeListEntries();
+                //setTypeListEntries();
                 return true;
             }
         });
@@ -60,7 +60,7 @@ public class SettingsMainFragment extends PreferenceFragment {
             }
         });
 
-        multiSelectListPreference.setPositiveButtonText("Remove");
+        //multiSelectListPreference.setPositiveButtonText("Remove");
 
 //        multiSelectListPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
 //            @Override
@@ -75,7 +75,7 @@ public class SettingsMainFragment extends PreferenceFragment {
 //            }
 //        });
     }
-
+/*
     public void setTypeListEntries() {
         multiSelectListPreference = (MultiSelectListPreference) findPreference("multiselectlist_preference");
 //        multiSelectListPreference.setEntryValues(new String[]{"a"});
@@ -95,4 +95,6 @@ public class SettingsMainFragment extends PreferenceFragment {
         multiSelectListPreference.setEntries(types);
         multiSelectListPreference.setEntryValues(types);
     }
+
+    */
 }
