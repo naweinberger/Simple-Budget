@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class DownloadClient extends AsyncTask<Void, Void, Void> {
     private static final String downloadUrl = "http://natan.weinberger.us/simplebudget/index.php";
-    static String jsonResult, username, password, tag;
+    String jsonResult, username, password, tag;
     public static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
     private Context context;
 
@@ -92,9 +92,10 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
         HistoryListFragment.list.setAdapter(new MyBaseAdapter(context, transactionList));
     }
 
-    public static ArrayList<Transaction> makeList() {
+    public ArrayList<Transaction> makeList() {
 
         try {
+            transactionList = new ArrayList<Transaction>();
             JSONObject jsonResponse = new JSONObject(jsonResult);
             JSONArray jsonMainNode = jsonResponse.optJSONArray(username);
             for (int i = 0; i < jsonMainNode.length(); i++) {
