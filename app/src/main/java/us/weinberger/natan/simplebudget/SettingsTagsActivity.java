@@ -2,6 +2,7 @@ package us.weinberger.natan.simplebudget;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -55,16 +56,19 @@ public class SettingsTagsActivity extends Activity {
         setContentView(R.layout.activity_settings_tags);
 
         listView = (DragSortListView) findViewById(R.id.listview);
-        String[] names = new String[]{"0", "1"};
-        ArrayList<String> list = new ArrayList<String>(Arrays.asList(names));
+
+        SharedPreferences prefs = getSharedPreferences("SBPref", 0);
+        String tags = prefs.getString("types", "");
+        ArrayList<String> list = new ArrayList<String>();
+        list = Functions.deserializeArray(tags);
         adapter = new ArrayAdapter<String>(this,
-                R.layout.list_row_layout, R.id.amount, list);
+                R.layout.tag_row_layout, R.id.tagName, list);
         listView.setAdapter(adapter);
         listView.setDropListener(onDrop);
         listView.setRemoveListener(onRemove);
 
         DragSortController controller = new DragSortController(listView);
-        //controller.setDragHandleId(R.id.imageView1);
+        controller.setDragHandleId(R.id.dragImageView);
         //controller.setClickRemoveId(R.id.);
         controller.setRemoveEnabled(false);
         controller.setSortEnabled(true);
