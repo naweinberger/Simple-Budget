@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -44,6 +45,16 @@ public class SettingsTagsActivity extends ListActivity {
                 String item = adapter.getItem(from);
                 adapter.remove(item);
                 adapter.insert(item, to);
+                ArrayList<String> newTypesListOnClick = new ArrayList<String>();
+                for (int i = 0; i < adapter.getCount(); i++) {
+                    newTypesListOnClick.add(adapter.getItem(i));
+                }
+                String newTypesListOnDrop = Functions.serializeArray(newTypesListOnClick);
+                SharedPreferences prefs = getSharedPreferences("SBPref", 0);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.remove("types");
+                editor.putString("types", newTypesListOnDrop);
+                editor.commit();
             }
         }
     };
@@ -96,23 +107,47 @@ public class SettingsTagsActivity extends ListActivity {
         listView.setOnTouchListener(controller);
         listView.setDragEnabled(true);
 
+        Button addTagBtn = (Button) findViewById(R.id.add_tag_submit);
+        final EditText addTagEditText = (EditText) findViewById(R.id.add_tag_edittext);
 
-
-
-
-        Button submitButton = (Button) findViewById(R.id.submitButtonTagsActivity);
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        addTagBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String newTypesList = Functions.serializeArray(list);
+                String newTag = addTagEditText.getText().toString();
+                adapter.insert(newTag, 0);
+                adapter.notifyDataSetChanged();
+
+
+
                 SharedPreferences prefs = getSharedPreferences("SBPref", 0);
                 SharedPreferences.Editor editor = prefs.edit();
+                ArrayList<String> newTypesListOnClick = new ArrayList<String>();
+                for (int i = 0; i < adapter.getCount(); i++) {
+                    newTypesListOnClick.add(adapter.getItem(i));
+                }
                 editor.remove("types");
-                editor.putString("types", newTypesList);
+                editor.putString("types", Functions.serializeArray(newTypesListOnClick));
                 editor.commit();
-                onBackPressed();
+                addTagEditText.setText("");
+
             }
         });
+
+
+//
+//        Button submitButton = (Button) findViewById(R.id.submitButtonTagsActivity);
+//        submitButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String newTypesList = Functions.serializeArray(list);
+//                SharedPreferences prefs = getSharedPreferences("SBPref", 0);
+//                SharedPreferences.Editor editor = prefs.edit();
+//                editor.remove("types");
+//                editor.putString("types", newTypesList);
+//                editor.commit();
+//                onBackPressed();
+//            }
+//        });
 
 
 

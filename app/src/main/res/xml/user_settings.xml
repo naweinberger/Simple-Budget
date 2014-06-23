@@ -4,15 +4,10 @@
     <PreferenceCategory
         android:title="Tags">
 
-        <EditTextPreference
-            android:key="add_type_preference"
-            android:title="Add a tag"/>
-
-
-
         <Preference
             android:key="load_tags_remove"
-            android:title="Remove a tag" />
+            android:title="Edit tags"
+            android:summary="Add, remove, or reorder tags"/>
 
 
     </PreferenceCategory>
