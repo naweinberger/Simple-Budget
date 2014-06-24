@@ -41,16 +41,14 @@ public class LoginActivity extends Activity {
 
 
 	}
-	
-	@Override
-	public void onBackPressed() 
-	{
-	    Intent intent = new Intent(this, StartupActivity.class);
-        startActivity(intent);
-        finish();
-	    overridePendingTransition(R.anim.left_slide_in, R.anim.left_slide_out);
-	}
-	
+
+    @Override
+    public void onBackPressed()
+    {
+        this.finish();
+        overridePendingTransition (R.anim.left_slide_in, R.anim.left_slide_out);
+    }
+
 	public void login(View view) {
 		usernameET = (EditText) findViewById(R.id.usernameET);
 		passwordET = (EditText) findViewById(R.id.passwordET);
