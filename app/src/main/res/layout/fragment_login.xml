@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -7,91 +7,122 @@
     android:orientation="vertical"
     android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".12"/>
+
+    <LinearLayout
+        android:id="@+id/usernameLoginLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="2dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
     <EditText
         android:id="@+id/usernameET"
-        style="@android:style/TextAppearance.Holo.Widget.EditText"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="82dp"
-        android:ems="10"
         android:hint="Username"
-        android:inputType="textUri"
-        android:textColor="#d0d6d6"
-        android:editable="true"
-        android:selectAllOnFocus="true"
-        android:autoText="false"
-        android:background="@drawable/abc_ab_transparent_light_holo">
+        android:inputType="text"
+        android:capitalize="none"
+        android:background="@drawable/top_rounded_edittext"
+        android:paddingLeft="22dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingRight="12dp">
 
         <requestFocus />
     </EditText>
 
+
     <EditText
         android:id="@+id/passwordET"
         style="@android:style/TextAppearance.Holo.Widget.EditText"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        android:textColor="#ffffff"
-        android:layout_below="@+id/usernameET"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:background="@drawable/abc_ab_transparent_light_holo" />
+        android:background="@drawable/bottom_rounded_edittext"
+        android:paddingLeft="22dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingRight="12dp"/>
 
 
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".3"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/submitLoginLinearLayout">
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"/>
     <Button
         android:id="@+id/submitLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight=".8"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/passwordET"
-        android:layout_marginTop="143sp"
         android:alpha="0.1"
-        android:background="#8E918F"
+        android:background="@drawable/rounded_button"
         android:height="60dp"
         android:onClick="login"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".1"/>
+
+        </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/submitLogin"
-        android:layout_alignBottom="@+id/submitLogin"
+        android:layout_alignTop="@+id/submitLoginLinearLayout"
+
+        android:layout_alignBottom="@+id/submitLoginLinearLayout"
+        android:gravity="center"
         android:layout_centerHorizontal="true"
         android:text="Login"
         android:textSize="25sp"
         android:textColor="#ffffff"
         android:id="@+id/textView2" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text=">"
-        android:textSize="25sp"
-        android:textColor="#c2c2c2"
-        android:layout_alignBaseline="@+id/submitLogin"
-        android:layout_alignBottom="@+id/submitLogin"
-        android:layout_toRightOf="@+id/passwordET"
-        android:layout_marginLeft="20sp"/>
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Remember me"
-        android:id="@+id/rememberMe"
-        android:layout_below="@id/passwordET"
-        android:layout_marginTop="30dp"
-        android:layout_alignLeft="@+id/passwordET"
-        android:layout_alignStart="@+id/passwordET"
-        android:checked="false"
-        android:textColor="#ffffff" />
+    </RelativeLayout>
 
 
-</RelativeLayout>
+
+
+</LinearLayout>

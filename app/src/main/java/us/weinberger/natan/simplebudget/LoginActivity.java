@@ -56,8 +56,6 @@ public class LoginActivity extends Activity {
 		username = usernameET.getText().toString();
 		password = passwordET.getText().toString();
 
-        rememberMe = (CheckBox) findViewById(R.id.rememberMe);
-        if (rememberMe.isChecked()) rememberMeChecked = true;
 		String tag = "login";
 
         if (username.contains(";") || password.contains(";")) {
@@ -124,14 +122,14 @@ public class LoginActivity extends Activity {
             if (code.intValue() == 0) { //value 0 means success
                 Intent intent = new Intent(context, HomeActivity.class);
                 intent.putExtra("username", username);
-                if (rememberMeChecked) {
+
                     pref = getApplicationContext().getSharedPreferences("SBPref", 0);
                     SharedPreferences.Editor editor = pref.edit();
                     editor.putString("logged_in_username", ""+username);
                     editor.putString("logged_in_password", ""+password);
                     editor.commit();
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                }
+
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);

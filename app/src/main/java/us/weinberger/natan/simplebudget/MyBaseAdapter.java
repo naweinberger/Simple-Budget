@@ -3,6 +3,7 @@ package us.weinberger.natan.simplebudget;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +54,14 @@ public class MyBaseAdapter extends BaseAdapter {
 		else {
 			mViewHolder = (MyViewHolder) convertView.getTag();
 		}
-		
+
+        if (position%2 == 0) {
+            convertView.setBackgroundColor(Color.parseColor("#51524e"));
+        }
+
+        else {
+            convertView.setBackgroundColor(Color.parseColor("#2f302c"));
+        }
 		mViewHolder.amount = detail(convertView, R.id.amount, list.get(position).getAmount());
 		mViewHolder.date = detail(convertView, R.id.date, list.get(position).getDate());
 		mViewHolder.location = detail(convertView, R.id.location, list.get(position).getLocation());
