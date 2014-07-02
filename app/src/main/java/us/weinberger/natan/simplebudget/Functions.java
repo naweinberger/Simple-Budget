@@ -50,4 +50,9 @@ public class Functions {
 
         return array;
     }
+
+    public static String formDate(int day, int month, int year) {
+        String date = String.valueOf(month) + "/" + String.valueOf(day) + "/" + String.valueOf(year);
+        return date;
+    }
 }
