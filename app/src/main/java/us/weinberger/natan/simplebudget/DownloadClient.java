@@ -102,10 +102,12 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
                 JSONObject jsonChildNode = jsonMainNode.getJSONObject(i);
                 String amount = jsonChildNode.optString("amount");
                 String location = jsonChildNode.optString("location");
-                String date = jsonChildNode.optString("date");
+                String day = jsonChildNode.optString("day");
+                String month = jsonChildNode.optString("month");
+                String year = jsonChildNode.optString("year");
                 String outgoing = jsonChildNode.optString("outgoing");
                 String id = jsonChildNode.optString("id");
-                transactionList.add(TransactionClient.createRecord(amount, location, date, outgoing, id));
+                transactionList.add(TransactionClient.createRecord(amount, location, outgoing, id, day, month, year));
             }
         } catch (JSONException e) {
 //    	   Toast.makeText(getApplicationContext(), "Error" + e.toString(),

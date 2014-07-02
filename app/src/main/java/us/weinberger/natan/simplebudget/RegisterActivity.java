@@ -131,7 +131,7 @@ public class RegisterActivity extends Activity {
         @Override
         protected void onPostExecute(Integer success) {
             if (success.intValue() == 0) {
-                Intent intent = new Intent(context, MainActivity.class);
+                Intent intent = new Intent(context, HomeActivity.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
                 finish();

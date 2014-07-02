@@ -55,6 +55,8 @@ public class DetailTransactionFragment extends Fragment {
         locationET = (AutoCompleteTextView) v.findViewById(R.id.AutoCompleteTextViewLocation);
 
 
+
+
         SharedPreferences prefs = getActivity().getSharedPreferences("SBPref", 0);
         SharedPreferences.Editor editor = prefs.edit();
         editor.commit();
@@ -89,6 +91,13 @@ public class DetailTransactionFragment extends Fragment {
 
         datePickerButton = (Button) v.findViewById(R.id.datePickerButton);
         datePickerButton.setTypeface(roboFont);
+
+        final Calendar c = Calendar.getInstance();
+        mYear = c.get(Calendar.YEAR);
+        mMonth = c.get(Calendar.MONTH);
+        mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        datePickerButton.setText(Functions.formDate(mDay, mMonth+1, mYear));
         datePickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,7 +109,7 @@ public class DetailTransactionFragment extends Fragment {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        datePickerButton.setText(monthOfYear+1+"/"+dayOfMonth+"/"+year);
+                        datePickerButton.setText(Functions.formDate(dayOfMonth, monthOfYear+1, year));
                     }
                 }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -121,8 +130,9 @@ public class DetailTransactionFragment extends Fragment {
         Transaction transaction = new Transaction();
         transaction.setAmount(amountString);
         transaction.setLocation(locationET.getText().toString());
-        date = datePickerButton.getText().toString();
-        transaction.setDate(date);
+        transaction.setDay(Integer.toString(mDay));
+        transaction.setMonth(Integer.toString(mMonth+1));
+        transaction.setYear(Integer.toString(mYear));
         return transaction;
     }
 

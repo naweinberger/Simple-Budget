@@ -4,7 +4,7 @@ public class Transaction {
 
 		String amount;
 		String location;
-		String date;
+		String day, month, year;
 		String outgoing;
 		String id;
 		int icon;
@@ -21,19 +21,38 @@ public class Transaction {
 		public void setLocation(String location) {
 			this.location = location;
 		}
-		public String getDate() {
-			return date;
-		}
-		public void setDate(String date) {
-			this.date = date;
-		}
-		public String isOutgoing() {
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String isOutgoing() {
 			return outgoing;
 		}
 		public void setOutgoing(String outgoing) {
 			this.outgoing = outgoing;
 		}
-		
+
 		public String getId() {
 			return id;
 		}

@@ -94,7 +94,6 @@ public class NumpadFragment extends Fragment implements View.OnClickListener {
                     addDigit(Integer.valueOf(btn.getText().toString()));
                 }
                 catch (Exception e) {
-                    Log.d("onClick/NumpadFragment", e.toString());
                 }
 
         }
@@ -104,12 +103,9 @@ public class NumpadFragment extends Fragment implements View.OnClickListener {
     public void backspaceTransaction() {
         try {
             String newAmount = String.valueOf((int) (amount * 100));
-            Log.d("TEST", "cents: " + newAmount);
             String mnewAmount = newAmount.substring(0, newAmount.length() - 1);
-            Log.d("TEST", "mnewAmount: " + mnewAmount);
             amount = Double.valueOf(mnewAmount);
             amount /= 100;
-            Log.d("TEST", "amount value is really " + String.valueOf(amount));
 
             DecimalFormat myFormatter = new DecimalFormat("$###,###,###.##");
             myFormatter.setMinimumFractionDigits(2);

@@ -109,7 +109,7 @@
                 android:alpha="0.1"
                 android:background="@drawable/rounded_button"
                 android:height="60dp"
-                android:onClick="login"
+                android:onClick="register"
                 android:textColor="#ffffff"/>
 
             <Space

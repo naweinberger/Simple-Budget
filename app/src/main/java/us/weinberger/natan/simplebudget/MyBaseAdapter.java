@@ -16,6 +16,7 @@ public class MyBaseAdapter extends BaseAdapter {
 	ArrayList<Transaction> list = new ArrayList<Transaction>();
 	LayoutInflater inflater;
 	Context context;
+    String date;
 	
 	public MyBaseAdapter(Context context, ArrayList<Transaction> list) {
 		this.context = context;
@@ -62,8 +63,10 @@ public class MyBaseAdapter extends BaseAdapter {
         else {
             convertView.setBackgroundColor(Color.parseColor("#2f302c"));
         }
+
+        date = list.get(position).getMonth() + "/" + list.get(position).getDay() + "/" + list.get(position).getYear();
 		mViewHolder.amount = detail(convertView, R.id.amount, list.get(position).getAmount());
-		mViewHolder.date = detail(convertView, R.id.date, list.get(position).getDate());
+		mViewHolder.date = detail(convertView, R.id.date, date);
 		mViewHolder.location = detail(convertView, R.id.location, list.get(position).getLocation());
 		mViewHolder.icon = detail(convertView, R.id.typeTransaction, list.get(position).getIcon());
 

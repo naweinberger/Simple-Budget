@@ -37,7 +37,9 @@ public class TransactionClient  {
         parameters.add(new BasicNameValuePair("password", password));
 		parameters.add(new BasicNameValuePair("amount", newEntry.getAmount()));
 		parameters.add(new BasicNameValuePair("location", newEntry.getLocation()));
-		parameters.add(new BasicNameValuePair("date", newEntry.getDate()));
+		parameters.add(new BasicNameValuePair("day", newEntry.getDay()));
+        parameters.add(new BasicNameValuePair("month", newEntry.getMonth()));
+        parameters.add(new BasicNameValuePair("year", newEntry.getYear()));
 		//parameters.add(new BasicNameValuePair("outgoing", String.valueOf(newEntry.isOutgoing())));
         parameters.add(new BasicNameValuePair("tag", "upload"));
 
@@ -97,11 +99,13 @@ public class TransactionClient  {
 		}
 	}
 
-    public static Transaction createRecord(String amount, String location, String date, String outgoing, String id) {
+    public static Transaction createRecord(String amount, String location, String outgoing, String id, String day, String month, String year) {
         Transaction newTransaction = new Transaction();
         newTransaction.setAmount(amount);
         newTransaction.setLocation(location);
-        newTransaction.setDate(date);
+        newTransaction.setDay(day);
+        newTransaction.setMonth(month);
+        newTransaction.setYear(year);
         newTransaction.setOutgoing(outgoing);
         newTransaction.setId(id);
         if (newTransaction.isOutgoing().equals("true")) {
