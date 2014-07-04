@@ -89,6 +89,7 @@ public class DetailTransactionFragment extends Fragment {
             }
         });
 
+
         datePickerButton = (Button) v.findViewById(R.id.datePickerButton);
         datePickerButton.setTypeface(roboFont);
 

@@ -32,7 +32,7 @@
         android:layout_centerHorizontal="true"
         android:textOn="In"
         android:textOff="Out"
-        android:thumb="@drawable/switch_thumb" />
+        android:thumb="@drawable/toggle_custom_outgoing" />
 
     <DatePicker
         android:id="@+id/datePicker1"
