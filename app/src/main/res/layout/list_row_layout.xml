@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="60dp"
     android:paddingRight="10dp"
     android:gravity="center_vertical">
 	
@@ -15,36 +15,26 @@
     </ImageView>
     <TextView
         android:id="@+id/amount"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
         android:text="Amount"
-        android:textSize="22sp"
-        android:textColor="#ffffff"
         android:layout_weight="2"
-        android:layout_gravity="center_vertical">
+        android:layout_gravity="center_vertical"
+        style="@style/ListRowTextView">
     </TextView>
     
     <TextView
         android:id="@+id/location"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
         android:text="Location"
-        android:textSize="22sp"
-        android:textColor="#ffffff"
         android:layout_weight="2"
         android:gravity="left"
-         >
+        style="@style/ListRowTextView" >
     </TextView>
     
     <TextView
         android:id="@+id/date"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
         android:text="Date"
-        android:textSize="22sp"
-        android:textColor="#ffffff"
         android:layout_weight="2"
-        android:gravity="right" >
+        android:gravity="right"
+        style="@style/ListRowTextView">
     </TextView>
 
 </LinearLayout> 

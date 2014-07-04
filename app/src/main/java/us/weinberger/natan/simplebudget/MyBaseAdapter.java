@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -57,21 +58,19 @@ public class MyBaseAdapter extends BaseAdapter {
 		}
 
         if (position%2 == 0) {
-            convertView.setBackgroundColor(Color.parseColor("#51524e"));
+            convertView.setBackgroundResource(R.drawable.list_bg_even);
         }
 
         else {
-            convertView.setBackgroundColor(Color.parseColor("#2f302c"));
+            convertView.setBackgroundResource(R.drawable.list_bg_odd);
         }
 
         date = list.get(position).getMonth() + "/" + list.get(position).getDay() + "/" + list.get(position).getYear();
-        String color;
-        if (list.get(position).isOutgoing() == "true") color = "#ad0202";
-        else color = "#289404";
+
 		mViewHolder.amount = detailTextView(convertView, R.id.amount, list.get(position).getAmount());
 		mViewHolder.date = detailTextView(convertView, R.id.date, date);
 		mViewHolder.location = detailTextView(convertView, R.id.location, list.get(position).getLocation());
-		mViewHolder.typeColor = detailImageView(convertView, R.id.typeTransaction, color);
+		mViewHolder.typeColor = detailImageView(convertView, R.id.typeTransaction, list.get(position).getIcon());
 
 //        Typeface roboFont = Typeface.createFromAsset(context.getAssets(), "Roboto-Thin.ttf");
 //        mViewHolder.amount.setTypeface(roboFont);
@@ -80,6 +79,7 @@ public class MyBaseAdapter extends BaseAdapter {
 
 		return convertView;
 	}
+
 
 	
 	private TextView detailTextView(View view, int resId, String desc) {

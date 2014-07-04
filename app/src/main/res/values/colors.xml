@@ -3,5 +3,8 @@
 
     <color name="textColor">#ffffff</color>
     <color name="appBackground">#2f302c</color>
+    <color name="listRowEven">#51524e</color>
+    <color name="listRowOdd">#2f302c</color>
+    <color name="selectedRow">#bdbdbd</color>
 
 </resources>

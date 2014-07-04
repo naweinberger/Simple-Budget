@@ -20,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,6 +38,7 @@ public class DetailTransactionFragment extends Fragment {
     static Button datePickerButton;
     Spinner typeSpinner;
     ImageButton completeTransactionButton;
+    static ToggleButton outgoingToggle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -89,6 +91,8 @@ public class DetailTransactionFragment extends Fragment {
             }
         });
 
+        outgoingToggle = (ToggleButton) v.findViewById(R.id.outgoingToggleButton);
+
 
         datePickerButton = (Button) v.findViewById(R.id.datePickerButton);
         datePickerButton.setTypeface(roboFont);
@@ -134,6 +138,12 @@ public class DetailTransactionFragment extends Fragment {
         transaction.setDay(Integer.toString(mDay));
         transaction.setMonth(Integer.toString(mMonth+1));
         transaction.setYear(Integer.toString(mYear));
+        if (outgoingToggle.getText() == "Out") {
+            transaction.setOutgoing("true");
+        }
+        else {
+            transaction.setOutgoing("false");
+        }
         return transaction;
     }
 

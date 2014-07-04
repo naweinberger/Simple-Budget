@@ -2,6 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="false" android:drawable="@drawable/switch_thumb_activated_holo_light" />
 
-    <item android:state_checked="true"  android:drawable="#ff0000" />
-    <item android:state_checked="false" android:drawable="#00ff00" />
+    <item android:state_checked="true"  android:drawable="@drawable/button_plus_green" />
+    <item android:state_checked="false" android:drawable="@drawable/button_minus_red" />
 </selector>

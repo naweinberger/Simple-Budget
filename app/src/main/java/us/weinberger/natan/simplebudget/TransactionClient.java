@@ -40,7 +40,7 @@ public class TransactionClient  {
 		parameters.add(new BasicNameValuePair("day", newEntry.getDay()));
         parameters.add(new BasicNameValuePair("month", newEntry.getMonth()));
         parameters.add(new BasicNameValuePair("year", newEntry.getYear()));
-		//parameters.add(new BasicNameValuePair("outgoing", String.valueOf(newEntry.isOutgoing())));
+		parameters.add(new BasicNameValuePair("outgoing", newEntry.isOutgoing()));
         parameters.add(new BasicNameValuePair("tag", "upload"));
 
 		DefaultHttpClient client = new DefaultHttpClient();
@@ -109,11 +109,11 @@ public class TransactionClient  {
         newTransaction.setOutgoing(outgoing);
         newTransaction.setId(id);
         if (newTransaction.isOutgoing().equals("true")) {
-            newTransaction.setIcon("#ff0000");
+            newTransaction.setIcon("#ad0202");
         }
 
         else {
-            newTransaction.setIcon("#00ff00");
+            newTransaction.setIcon("#289404");
         }
         return newTransaction;
     }

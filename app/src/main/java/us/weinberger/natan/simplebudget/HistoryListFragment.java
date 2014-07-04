@@ -8,11 +8,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.AdapterView;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,9 +33,8 @@ public class HistoryListFragment extends Fragment {
         
         final DownloadClient client = new DownloadClient(getActivity().getApplicationContext());
         client.execute();
-        list = (ListView) v.findViewById(R.id.historyListView);
 
-//
+        list = (ListView) v.findViewById(R.id.historyListView);
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
             @Override
