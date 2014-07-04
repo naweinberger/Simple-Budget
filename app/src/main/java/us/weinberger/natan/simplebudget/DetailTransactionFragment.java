@@ -147,7 +147,6 @@ public class DetailTransactionFragment extends Fragment {
             public void run() {
                 try{
                     boolean success = TransactionClient.upload(transaction, username, password);
-                    Log.d("TEST", String.valueOf(success));
 
                     if (success) {
                         getActivity().runOnUiThread(new Runnable() {

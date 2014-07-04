@@ -3,6 +3,7 @@ package us.weinberger.natan.simplebudget;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +29,7 @@ public class RegisterActivity extends Activity {
 	String jsonResult, username, password, email;
 	Context context = RegisterActivity.this;
 	EditText usernameET, emailET, passwordET;
+    SharedPreferences pref;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +133,11 @@ public class RegisterActivity extends Activity {
         @Override
         protected void onPostExecute(Integer success) {
             if (success.intValue() == 0) {
+                pref = getApplicationContext().getSharedPreferences("SBPref", 0);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("logged_in_username", ""+username);
+                editor.putString("logged_in_password", ""+password);
+                editor.commit();
                 Intent intent = new Intent(context, HomeActivity.class);
                 intent.putExtra("username", username);
                 startActivity(intent);

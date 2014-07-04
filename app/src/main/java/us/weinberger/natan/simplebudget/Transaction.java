@@ -7,7 +7,7 @@ public class Transaction {
 		String day, month, year;
 		String outgoing;
 		String id;
-		int icon;
+		String icon;
 		
 		public String getAmount() {
 			return amount;
@@ -61,11 +61,11 @@ public class Transaction {
 			this.id = id;
 		}
 		
-		public void setIcon(int icon) {
+		public void setIcon(String icon) {
 			this.icon = icon;
 		}
 		
-		public int getIcon() {
+		public String getIcon() {
 			return icon;
 		}
 		

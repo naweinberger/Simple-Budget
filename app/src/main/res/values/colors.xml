@@ -2,5 +2,6 @@
 <resources>
 
     <color name="textColor">#ffffff</color>
+    <color name="appBackground">#2f302c</color>
 
 </resources>

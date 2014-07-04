@@ -65,10 +65,13 @@ public class MyBaseAdapter extends BaseAdapter {
         }
 
         date = list.get(position).getMonth() + "/" + list.get(position).getDay() + "/" + list.get(position).getYear();
-		mViewHolder.amount = detail(convertView, R.id.amount, list.get(position).getAmount());
-		mViewHolder.date = detail(convertView, R.id.date, date);
-		mViewHolder.location = detail(convertView, R.id.location, list.get(position).getLocation());
-		mViewHolder.icon = detail(convertView, R.id.typeTransaction, list.get(position).getIcon());
+        String color;
+        if (list.get(position).isOutgoing() == "true") color = "#ad0202";
+        else color = "#289404";
+		mViewHolder.amount = detailTextView(convertView, R.id.amount, list.get(position).getAmount());
+		mViewHolder.date = detailTextView(convertView, R.id.date, date);
+		mViewHolder.location = detailTextView(convertView, R.id.location, list.get(position).getLocation());
+		mViewHolder.typeColor = detailImageView(convertView, R.id.typeTransaction, color);
 
 //        Typeface roboFont = Typeface.createFromAsset(context.getAssets(), "Roboto-Thin.ttf");
 //        mViewHolder.amount.setTypeface(roboFont);
@@ -79,22 +82,22 @@ public class MyBaseAdapter extends BaseAdapter {
 	}
 
 	
-	private TextView detail(View view, int resId, String desc) {
+	private TextView detailTextView(View view, int resId, String desc) {
 		TextView textview = (TextView) view.findViewById(resId);
 		textview.setText(desc);
 		return textview;
 	}
 	
-	private ImageView detail(View view, int resId, int icon) {
+	private ImageView detailImageView(View view, int resId, String icon) {
 		ImageView imageView = (ImageView) view.findViewById(resId);
-		imageView.setImageResource(icon);
+		imageView.setBackgroundColor(Color.parseColor(icon));
 		
 		return imageView;
 	}
 
 	private class MyViewHolder {
 		TextView amount, date, location;
-		ImageView icon;
+		ImageView typeColor;
 	}
 }
 

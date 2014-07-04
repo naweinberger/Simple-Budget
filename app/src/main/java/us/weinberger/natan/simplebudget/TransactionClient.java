@@ -109,11 +109,11 @@ public class TransactionClient  {
         newTransaction.setOutgoing(outgoing);
         newTransaction.setId(id);
         if (newTransaction.isOutgoing().equals("true")) {
-            newTransaction.setIcon(R.drawable.button_minus_red);
+            newTransaction.setIcon("#ff0000");
         }
 
         else {
-            newTransaction.setIcon(R.drawable.button_plus_green);
+            newTransaction.setIcon("#00ff00");
         }
         return newTransaction;
     }

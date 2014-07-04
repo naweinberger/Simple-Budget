@@ -2,6 +2,7 @@ package us.weinberger.natan.simplebudget;
 
 import android.app.DatePickerDialog;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.format.DateFormat;
@@ -78,6 +79,14 @@ public class TransactionActivity extends FragmentActivity {
         transaction.addToBackStack(null);
         transaction.commit();
         //detailTransactionFragment.setAmountDetailText(amountString);
+    }
+
+    public void endTransaction() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
+        finish();
     }
 
 
