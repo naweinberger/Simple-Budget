@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -39,6 +40,7 @@ public class DetailTransactionFragment extends Fragment {
     Spinner typeSpinner;
     ImageButton completeTransactionButton;
     static ToggleButton outgoingToggle;
+    static boolean toggleChecked = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,6 +94,18 @@ public class DetailTransactionFragment extends Fragment {
         });
 
         outgoingToggle = (ToggleButton) v.findViewById(R.id.outgoingToggleButton);
+        outgoingToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    toggleChecked = true;
+                }
+
+                else {
+                    toggleChecked = false;
+                }
+            }
+        });
 
 
         datePickerButton = (Button) v.findViewById(R.id.datePickerButton);
@@ -138,7 +152,7 @@ public class DetailTransactionFragment extends Fragment {
         transaction.setDay(Integer.toString(mDay));
         transaction.setMonth(Integer.toString(mMonth+1));
         transaction.setYear(Integer.toString(mYear));
-        if (outgoingToggle.getText() == "Out") {
+        if (toggleChecked) {
             transaction.setOutgoing("true");
         }
         else {
