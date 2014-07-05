@@ -189,4 +189,10 @@ public class AnalysisActivity extends ActionBarActivity implements ActionBar.Tab
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.left_slide_in, R.anim.left_slide_out);
+    }
+
 }

@@ -19,22 +19,28 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by Natan on 6/21/2014.
  */
 public class HistoryListFragment extends Fragment {
     public static ListView list;
+    private static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_history_list, container, false);
 
-        
-        final DownloadClient client = new DownloadClient(getActivity().getApplicationContext());
+
+        final DownloadClient client = new DownloadClient(getActivity().getApplicationContext(), "history");
         client.execute();
 
         list = (ListView) v.findViewById(R.id.historyListView);
+
+
+
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
             @Override
@@ -82,6 +88,9 @@ public class HistoryListFragment extends Fragment {
         return v;
     }
 
+    public static void setList(ArrayList<Transaction> newList) {
+        transactionList = newList;
+    }
 
 
 }

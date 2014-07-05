@@ -1,26 +1,65 @@
 package us.weinberger.natan.simplebudget;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class Transaction {
 
-		String amount;
-		String location;
-		String day, month, year;
-		String outgoing;
-		String id;
-		String icon;
+    String amount;
+    String location;
+    String day, month, year;
+    String outgoing;
+    String id;
+    String icon;
+    int numDay, numMonth, numYear;
+    Calendar date;
+
+    public Calendar getDate() {
+        return date;
+    }
+
+    public void setDate(Calendar date) {
+        this.date = date;
+    }
+
+    public int getNumDay() {
+        return numDay;
+    }
+
+    public void setNumDay(int numDay) {
+        this.numDay = numDay;
+    }
+
+    public int getNumMonth() {
+        return numMonth;
+    }
+
+    public void setNumMonth(int numMonth) {
+        this.numMonth = numMonth;
+    }
+
+    public int getNumYear() {
+        return numYear;
+    }
+
+    public void setNumYear(int numYear) {
+        this.numYear = numYear;
+    }
+
+
 		
-		public String getAmount() {
-			return amount;
-		}
-		public void setAmount(String amount) {
-			this.amount = amount;
-		}
-		public String getLocation() {
-			return location;
-		}
-		public void setLocation(String location) {
-			this.location = location;
-		}
+    public String getAmount() {
+        return amount;
+    }
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+    public String getLocation() {
+        return location;
+    }
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public String getDay() {
         return day;

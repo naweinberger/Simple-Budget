@@ -57,4 +57,10 @@ public class HistoryActivity extends ActionBarActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.left_slide_in, R.anim.left_slide_out);
+    }
 }

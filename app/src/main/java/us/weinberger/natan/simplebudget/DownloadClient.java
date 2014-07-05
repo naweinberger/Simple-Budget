@@ -31,9 +31,11 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
     String jsonResult, username, password, tag;
     public static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
     private Context context;
+    String taskTag;
 
-    public DownloadClient(Context c) {
+    public DownloadClient(Context c, String taskTag) {
         context = c;
+        this.taskTag = taskTag;
     }
 
     @Override
@@ -90,7 +92,12 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void v) {
         transactionList = makeList();
-        HistoryListFragment.list.setAdapter(new MyBaseAdapter(context, transactionList));
+        if (taskTag == "history") {
+            HistoryListFragment.list.setAdapter(new MyBaseAdapter(context, transactionList));
+        }
+        else if (taskTag == "analysis") {
+            AnalysisBarGraphFragment.setList(transactionList);
+        }
     }
 
     public ArrayList<Transaction> makeList() {
@@ -116,6 +123,13 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
             Log.d("MAKELIST", e.toString());
         }
 
+        for (int i = 0; i < transactionList.size(); i++) {
+            transactionList.get(i).setNumDay(Integer.valueOf(transactionList.get(i).getDay()));
+            transactionList.get(i).setNumMonth(Integer.valueOf(transactionList.get(i).getMonth()));
+            transactionList.get(i).setNumYear(Integer.valueOf(transactionList.get(i).getYear()));
+        }
+
+        transactionList = Functions.sortDates(transactionList);
         return transactionList;
 
         //transactions = transactionList;

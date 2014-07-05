@@ -90,7 +90,7 @@ public class TransactionClient  {
 		try {
 			String response = client.execute(httpPost, responseHandler);
             //if response = success... else error
-            final DownloadClient downloadClient = new DownloadClient(context);
+            final DownloadClient downloadClient = new DownloadClient(context, "history");
             downloadClient.execute();
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();

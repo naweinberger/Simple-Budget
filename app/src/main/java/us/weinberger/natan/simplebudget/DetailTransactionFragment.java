@@ -129,6 +129,9 @@ public class DetailTransactionFragment extends Fragment {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         datePickerButton.setText(Functions.formDate(dayOfMonth, monthOfYear+1, year));
+                        mYear = year;
+                        mMonth = monthOfYear;
+                        mDay = dayOfMonth;
                     }
                 }, mYear, mMonth, mDay);
                 datePickerDialog.show();
