@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2f302c"
@@ -53,8 +52,9 @@
             android:layout_gravity="center"
             android:layout_marginRight="40dp"
             android:textColor="#ffffff"
-            android:textOn="In"
-            android:textOff="Out"
+            android:textOn="Out"
+            android:textOff="In"
+            android:checked="true"
             android:background="@drawable/toggle_custom_outgoing"
             />
     </LinearLayout>
