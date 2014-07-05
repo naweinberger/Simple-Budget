@@ -146,6 +146,9 @@ public class BarGraph extends View {
                     String val = decimalFormat.format(Double.valueOf(p.getValue()));
 
                     this.p.setTextSize(40);
+
+                    if (points.size() > 6) this.p.setTextSize(25);
+
                     this.p.setColor(Color.WHITE);
                     this.p.getTextBounds(unit + p.getValue(), 0, 1, r2);
                     if (popup != null)

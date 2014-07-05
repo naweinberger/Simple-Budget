@@ -51,15 +51,27 @@ public class AnalysisBarGraphFragment extends Fragment {
 
 
         numMonthsSpinner = (Spinner) v.findViewById(R.id.numMonthsSpinner);
-        String[] numMonthsList = {"3", "6", "9", "12"};
+        String[] numMonthsList = {"3 months", "6 months", "9 months", "12 months"};
         ArrayAdapter<String> typesAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, numMonthsList);
         numMonthsSpinner.setAdapter(typesAdapter);
 
         numMonthsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                String selectedNum = adapterView.getItemAtPosition(i).toString();
-                numMonths = Integer.valueOf(selectedNum);
+                switch (i) {
+                    case 0:
+                        numMonths = 3;
+                        break;
+                    case 1:
+                        numMonths = 6;
+                        break;
+                    case 2:
+                        numMonths = 9;
+                        break;
+                    case 3:
+                        numMonths = 12;
+                        break;
+                }
                 createChart(transactionList);
             }
 

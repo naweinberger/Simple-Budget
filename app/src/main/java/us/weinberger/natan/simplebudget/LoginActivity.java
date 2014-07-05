@@ -121,14 +121,13 @@ public class LoginActivity extends Activity {
         protected void onPostExecute(Integer code) {
             if (code.intValue() == 0) { //value 0 means success
                 Intent intent = new Intent(context, HomeActivity.class);
-                intent.putExtra("username", username);
 
-                    pref = getApplicationContext().getSharedPreferences("SBPref", 0);
-                    SharedPreferences.Editor editor = pref.edit();
-                    editor.putString("logged_in_username", ""+username);
-                    editor.putString("logged_in_password", ""+password);
-                    editor.commit();
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                pref = getApplicationContext().getSharedPreferences("SBPref", 0);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putString("logged_in_username", ""+username);
+                editor.putString("logged_in_password", ""+password);
+                editor.commit();
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                 startActivity(intent);
                 finish();

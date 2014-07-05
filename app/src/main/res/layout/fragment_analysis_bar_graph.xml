@@ -12,7 +12,7 @@
 
     <Spinner
         android:id="@+id/numMonthsSpinner"
-        android:layout_width="100dp"
+        android:layout_width="125dp"
         android:layout_height="40dp"
         android:layout_gravity="right"
         style="@android:style/Widget.Holo.Spinner">
