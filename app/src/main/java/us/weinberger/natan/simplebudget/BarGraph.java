@@ -32,6 +32,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import org.jetbrains.annotations.NotNull;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class BarGraph extends View {
@@ -141,16 +142,22 @@ public class BarGraph extends View {
                 this.p.setTextSize(20);
                 canvas.drawText(p.getName(), (int) (((r.left + r.right) / 2) - (this.p.measureText(p.getName()) / 2)), getHeight() - 5, this.p);
                 if (showBarText) {
+                    DecimalFormat decimalFormat = new DecimalFormat("0.00");
+                    String val = decimalFormat.format(Double.valueOf(p.getValue()));
+
                     this.p.setTextSize(40);
                     this.p.setColor(Color.WHITE);
                     this.p.getTextBounds(unit + p.getValue(), 0, 1, r2);
                     if (popup != null)
-                        popup.setBounds((int) (((r.left + r.right) / 2) - (this.p.measureText(unit + p.getValue()) / 2)) - 14, r.top + (r2.top - r2.bottom) - 26, (int) (((r.left + r.right) / 2) + (this.p.measureText(unit + p.getValue()) / 2)) + 14, r.top);
+                        popup.setBounds((int) (((r.left + r.right) / 2) - (this.p.measureText(unit + val) / 2)) - 14, r.top + (r2.top - r2.bottom) - 26, (int) (((r.left + r.right) / 2) + (this.p.measureText(unit + val) / 2)) + 14, r.top);
                     popup.draw(canvas);
-                    if (isAppended())
-                        canvas.drawText(p.getValue() + unit, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + p.getValue()) / 2)), r.top - 20, this.p);
-                    else
-                        canvas.drawText(unit + p.getValue(), (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + p.getValue()) / 2)), r.top - 20, this.p);
+
+                    if (isAppended()) {
+                        canvas.drawText(val + unit, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + val) / 2)), r.top - 20, this.p);
+                    }
+                    else {
+                        canvas.drawText(unit + val, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + val) / 2)), r.top - 20, this.p);
+                    }
                 }
                 if (indexSelected == count && listener != null) {
                     this.p.setColor(Color.parseColor("#33B5E5"));
