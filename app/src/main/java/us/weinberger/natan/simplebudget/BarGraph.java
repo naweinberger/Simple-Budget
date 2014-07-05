@@ -159,7 +159,7 @@ public class BarGraph extends View {
                         canvas.drawText(val + unit, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + val) / 2)), (r2.top + r2.bottom) / 2, this.p);
                     }
                     else {
-                        canvas.drawText(unit + val, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + val) / 2)), r.top - 30, this.p);
+                        canvas.drawText(unit + val, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + val) / 2)), (r.top + (r2.top - r2.bottom) - 26 + r.top) / 2, this.p);
                     }
                 }
                 if (indexSelected == count && listener != null) {
