@@ -1,6 +1,7 @@
 package us.weinberger.natan.simplebudget;
 
 import android.app.Activity;
+import android.util.Log;
 
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
@@ -117,5 +118,13 @@ public class Functions {
 
 
         return transactionList;
+    }
+
+    public static double extractAmount(Transaction transaction) {
+        String amount = transaction.getAmount();
+        amount = amount.replace("$", "");
+        Log.d("amt", amount);
+        return Double.valueOf(amount);
+
     }
 }

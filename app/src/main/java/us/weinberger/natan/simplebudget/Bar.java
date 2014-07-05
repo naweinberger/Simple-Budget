@@ -34,6 +34,12 @@ public class Bar {
     private Path path;
     private Region region;
 
+    public Bar(int color, String name, float value) {
+        this.color = color;
+        this.name = name;
+        this.value = value;
+    }
+
     public int getColor() {
         return color;
     }

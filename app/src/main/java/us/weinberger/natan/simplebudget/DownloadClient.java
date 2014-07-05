@@ -65,7 +65,6 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
         try {
             HttpResponse response = client.execute(httpPost);
             jsonResult = inputStreamToString(response.getEntity().getContent()).toString();
-            Log.d("a", jsonResult);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,7 +95,7 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
             HistoryListFragment.list.setAdapter(new MyBaseAdapter(context, transactionList));
         }
         else if (taskTag == "analysis") {
-            AnalysisBarGraphFragment.setList(transactionList);
+            AnalysisBarGraphFragment.createChart(transactionList);
         }
     }
 
