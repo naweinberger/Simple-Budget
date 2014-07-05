@@ -104,12 +104,18 @@ public class AnalysisBarGraphFragment extends Fragment {
         String [] monthArray = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 
         for (int i = 0; i < numMonths; i++) {
-            points.add(new Bar(Color.parseColor(colorArray[i]), monthArray[month-numMonths+i], (float)monthlyTotals[i]));
+            int monthArrayIndex = month-numMonths+i;
+            if (monthArrayIndex < 0) monthArrayIndex += 12;
+
+            int colorIndex = i%3;
+
+            points.add(new Bar(Color.parseColor(colorArray[colorIndex]), monthArray[monthArrayIndex], (float)monthlyTotals[i]));
         }
 
         g.setBars(points);
         g.setUnit("$");
         g.appendUnit(false);
+
 
 
     }

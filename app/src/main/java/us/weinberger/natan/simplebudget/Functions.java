@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.util.Log;
 
 import java.text.DateFormatSymbols;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -123,8 +124,9 @@ public class Functions {
     public static double extractAmount(Transaction transaction) {
         String amount = transaction.getAmount();
         amount = amount.replace("$", "");
-        Log.d("amt", amount);
-        return Double.valueOf(amount);
+        amount = amount.replace(",", "");
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        return Double.parseDouble(decimalFormat.format(Double.valueOf(amount)));
 
     }
 }

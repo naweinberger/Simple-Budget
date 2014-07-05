@@ -160,7 +160,7 @@ public class BarGraph extends View {
                 }
                 count++;
             }
-            shouldUpdate = false;
+            shouldUpdate = true; //was originally false. true allows updates when dataset changes
         }
 
         ca.drawBitmap(fullImage, 0, 0, null);
