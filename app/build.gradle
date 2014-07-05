@@ -18,7 +18,11 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:+'
-    compile 'com.android.support:appcompat-v7:+'
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    compile 'com.android.support:support-v4:19.1.+'
+    compile 'com.android.support:appcompat-v7:19.+'
     compile 'com.mobeta.android.dslv:drag-sort-listview:0.6.1'
+    // You must install or update the Support Repository through the SDK manager to use this dependency.
+    compile 'com.android.support:support-v13:19.1.+'
+    compile 'com.intellij:annotations:+@jar'
 }

@@ -2,35 +2,23 @@
 <pre-dex-items>
 
     <item
+        dex="C:\Users\Natan\SimpleBudget\Simple-Budget\app\build\intermediates\pre-dexed\debug\classes-2819733b9fd3d5cdc3ecd8605ecc57d18610b3f0.jar"
+        jar="C:\Users\Natan\SimpleBudget\Simple-Budget\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
+    <item
         dex="C:\Users\Natan\Android\app\build\intermediates\pre-dexed\debug\classes-f8cc77102c824a498caa5a59e27c6c75df11e734.jar"
         jar="C:\Users\Natan\Android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
         jumboMode="false"
         revision="19.1.0"
         sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28"/>
     <item
-        dex="C:\Users\Natan\Android\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-09d00d74933da2ae8934bae35efe303691f184bd.jar"
-        jar="C:\Program Files (x86)\Android Studio\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        dex="C:\Users\Natan\SimpleBudget\Simple-Budget\app\build\intermediates\pre-dexed\debug\support-v13-19.1.0-f06fa3385efdc0b4f785982e7306ea58c62ef548.jar"
+        jar="C:\Program Files (x86)\Android Studio Beta\sdk\extras\android\m2repository\com\android\support\support-v13\19.1.0\support-v13-19.1.0.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
-    <item
-        dex="C:\Users\Natan\SimpleBudget\Simple-Budget\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-2f6891b7ab973560ad9f32b57a8b2ab8495931c1.jar"
-        jar="C:\Program Files (x86)\Android Studio Beta\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
-    <item
-        dex="C:\Users\Natan\SimpleBudget\Simple-Budget\app\build\intermediates\pre-dexed\debug\classes-6653400f5d71b9f2d8f64536fc63325a38f201f9.jar"
-        jar="C:\Users\Natan\SimpleBudget\Simple-Budget\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
-    <item
-        dex="C:\Users\Natan\SimpleBudget\Simple-Budget\app\build\intermediates\pre-dexed\debug\classes-f343e37207ef81d2ee230d8716e564bd34fae123.jar"
-        jar="C:\Users\Natan\SimpleBudget\Simple-Budget\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
+        sha1="6b852a232f642c75a7fdfc7212b841b8c8f8959c"/>
     <item
         dex="C:\Users\Natan\SimpleBudget\Simple-Budget\app\build\intermediates\pre-dexed\debug\classes-f6fa91cc244cd9da22955017ff07725f0c8b047e.jar"
         jar="C:\Users\Natan\SimpleBudget\Simple-Budget\build\intermediates\exploded-aar\com.mobeta.android.dslv\drag-sort-listview\0.6.1\classes.jar"
@@ -38,10 +26,16 @@
         revision="19.1.0"
         sha1="5c5d10d10e00ac48b7cfddcf16a46dd3432d6b99"/>
     <item
-        dex="C:\Users\Natan\SimpleBudget\Simple-Budget\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-2647780659596b6d34ecb7eac5f26dd13f988761.jar"
-        jar="C:\Users\Natan\SimpleBudget\Simple-Budget\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
+        dex="C:\Users\Natan\SimpleBudget\Simple-Budget\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0-8f8ea8114345ccb37dcc5feb5e151609f21db846.jar"
+        jar="C:\Program Files (x86)\Android Studio Beta\sdk\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67"/>
+    <item
+        dex="C:\Users\Natan\SimpleBudget\Simple-Budget\app\build\intermediates\pre-dexed\debug\annotations-12.0-1d70cfcfadd57fa148b681d773db94d65e36ba3b.jar"
+        jar="C:\Users\Natan\.gradle\caches\modules-2\files-2.1\com.intellij\annotations\12.0\bbcf6448f6d40abe506e2c83b70a3e8bfd2b4539\annotations-12.0.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="bbcf6448f6d40abe506e2c83b70a3e8bfd2b4539"/>
 
 </pre-dex-items>

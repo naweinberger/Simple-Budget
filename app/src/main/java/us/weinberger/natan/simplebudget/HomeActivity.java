@@ -117,13 +117,12 @@ public class HomeActivity extends Activity {
         startActivity(intent);
         overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
 
+    }
 
-//        DownloadClient client = new DownloadClient(HomeActivity.this);
-//        client.execute();
-//        ArrayList<Transaction> transactionList = DownloadClient.transactionList;
-//        for (Transaction transaction : transactionList) {
-//            Log.d("TEST", transaction.getLocation());
-//        }
+    public void analysisFeatures(View view) {
+        Intent intent = new Intent(this, AnalysisActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out);
     }
 
     private void logout() {

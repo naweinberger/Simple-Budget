@@ -19,7 +19,7 @@
         android:typeface="normal"
         android:textSize="25dp"
         android:singleLine="true"
-        android:onClick="viewHistory"
+        android:onClick="analysisFeatures"
         android:padding="7dp" />
     <Button
         android:layout_width="300dp"
