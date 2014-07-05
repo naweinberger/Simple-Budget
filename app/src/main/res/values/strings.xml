@@ -4,12 +4,12 @@
     <string name="app_name">Simple Budget</string>
     <string name="title_section1">Totals</string>
     <string name="title_section2">Distribution</string>
+    <string name="title_section3">Trends</string>
     <string name="submit">Submit</string>
     <string name="action_settings">Settings</string>
     <string name="currency_symbol">$</string>
     <string name="spinner_prompt">Type</string>
-    <string name="title_activity_analysis">AnalysisActivity</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_activity_analysis">Analysis</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>

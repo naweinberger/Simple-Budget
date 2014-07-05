@@ -139,7 +139,7 @@ public class BarGraph extends View {
                 this.p.setColor(p.getColor());
                 this.p.setAlpha(255);
                 canvas.drawRect(r, this.p);
-                this.p.setTextSize(20);
+                this.p.setTextSize(24);
                 canvas.drawText(p.getName(), (int) (((r.left + r.right) / 2) - (this.p.measureText(p.getName()) / 2)), getHeight() - 5, this.p);
                 if (showBarText) {
                     DecimalFormat decimalFormat = new DecimalFormat("0.00");
@@ -153,10 +153,10 @@ public class BarGraph extends View {
                     popup.draw(canvas);
 
                     if (isAppended()) {
-                        canvas.drawText(val + unit, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + val) / 2)), r.top - 20, this.p);
+                        canvas.drawText(val + unit, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + val) / 2)), (r2.top + r2.bottom) / 2, this.p);
                     }
                     else {
-                        canvas.drawText(unit + val, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + val) / 2)), r.top - 20, this.p);
+                        canvas.drawText(unit + val, (int) (((r.left + r.right) / 2) - (this.p.measureText(unit + val) / 2)), r.top - 30, this.p);
                     }
                 }
                 if (indexSelected == count && listener != null) {
