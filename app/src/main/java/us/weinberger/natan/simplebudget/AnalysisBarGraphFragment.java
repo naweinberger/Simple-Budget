@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -18,10 +21,11 @@ import java.util.concurrent.TimeUnit;
  * Created by Natan on 7/4/2014.
  */
 public class AnalysisBarGraphFragment extends Fragment {
-    //public static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
+    public static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
     private static int numMonths = 3;
     static BarGraph g;
     static ArrayList<Bar> points = new ArrayList<Bar>();
+    Spinner numMonthsSpinner;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_analysis_bar_graph, container, false);
@@ -36,23 +40,42 @@ public class AnalysisBarGraphFragment extends Fragment {
 
         g.setBars(points);
 
-        g.setOnBarClickedListener(new BarGraph.OnBarClickedListener(){
+//        g.setOnBarClickedListener(new BarGraph.OnBarClickedListener(){
+//
+//            @Override
+//            public void onClick(int index) {
+//
+//            }
+//
+//        });
 
+
+        numMonthsSpinner = (Spinner) v.findViewById(R.id.numMonthsSpinner);
+        String[] numMonthsList = {"3", "6", "9", "12"};
+        ArrayAdapter<String> typesAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, numMonthsList);
+        numMonthsSpinner.setAdapter(typesAdapter);
+
+        numMonthsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(int index) {
-
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedNum = adapterView.getItemAtPosition(i).toString();
+                numMonths = Integer.valueOf(selectedNum);
+                createChart(transactionList);
             }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
         });
-
-
 
         return v;
     }
 
-    public static void createChart(ArrayList<Transaction> transactionList) {
+    public static void createChart(ArrayList<Transaction> newTransactionList) {
         points.clear();
         int tempNumMonths = numMonths;
+        transactionList = newTransactionList;
 
         Calendar cal = Calendar.getInstance();
         int month = cal.get(cal.MONTH) + 1;
@@ -86,7 +109,8 @@ public class AnalysisBarGraphFragment extends Fragment {
             Log.d("getNumYear ", String.valueOf(transactionList.get(i).getNumYear()));
             if (tempNumMonths == 0) break;
             else if (transactionList.get(i).getNumMonth() == currentMonth && transactionList.get(i).getNumYear() == year) {
-                monthlyTotals[tempNumMonths-1] += Functions.extractAmount(transactionList.get(i));
+                if (transactionList.get(i).isOutgoing().equals("true")) monthlyTotals[tempNumMonths-1] += Functions.extractAmount(transactionList.get(i));
+                else monthlyTotals[tempNumMonths-1] -= Functions.extractAmount(transactionList.get(i));
             }
             else {
                 if (i > 0) i--;
