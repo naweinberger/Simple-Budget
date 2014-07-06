@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class DownloadClient extends AsyncTask<Void, Void, Void> {
     private static final String downloadUrl = "http://natan.weinberger.us/simplebudget/index.php";
-    String jsonResult, username, password, tag;
+    String jsonResult, username, password, type;
     public static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
     private Context context;
     String taskTag;
@@ -48,13 +48,13 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... params) {
         username = context.getSharedPreferences("SBPref", 0).getString("logged_in_username", "");
         password = context.getSharedPreferences("SBPref", 0).getString("logged_in_password", "");
-        tag = "download";
+        type = "download";
         DefaultHttpClient client = new DefaultHttpClient();
         HttpPost httpPost = new HttpPost(downloadUrl);
         List<BasicNameValuePair> parameters = new ArrayList<BasicNameValuePair>();
         parameters.add(new BasicNameValuePair("username", username));
         parameters.add(new BasicNameValuePair("password", password));
-        parameters.add(new BasicNameValuePair("tag", tag));
+        parameters.add(new BasicNameValuePair("type", type));
 
         try {
             httpPost.setEntity(new UrlEncodedFormEntity(parameters));
@@ -96,6 +96,7 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
         }
         else if (taskTag == "analysis") {
             AnalysisBarGraphFragment.createChart(transactionList);
+            AnalysisPieChartFragment.createChart(transactionList);
         }
     }
 
@@ -112,9 +113,10 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
                 String day = jsonChildNode.optString("day");
                 String month = jsonChildNode.optString("month");
                 String year = jsonChildNode.optString("year");
+                String tag = jsonChildNode.optString("tag");
                 String outgoing = jsonChildNode.optString("outgoing");
                 String id = jsonChildNode.optString("id");
-                transactionList.add(TransactionClient.createRecord(amount, location, outgoing, id, day, month, year));
+                transactionList.add(TransactionClient.createRecord(amount, location, outgoing, tag, id, day, month, year));
             }
         } catch (JSONException e) {
 //    	   Toast.makeText(getApplicationContext(), "Error" + e.toString(),

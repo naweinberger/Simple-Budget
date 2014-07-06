@@ -1,5 +1,5 @@
 /*
- * 	   Created by Daniel Nadeau
+ * 	   Created by Daniel Nadeau -- modified by Natan Weinberger
  * 	   daniel.nadeau01@gmail.com
  * 	   danielnadeau.blogspot.com
  * 

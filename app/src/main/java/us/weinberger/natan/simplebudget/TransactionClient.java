@@ -37,11 +37,12 @@ public class TransactionClient  {
         parameters.add(new BasicNameValuePair("password", password));
 		parameters.add(new BasicNameValuePair("amount", newEntry.getAmount()));
 		parameters.add(new BasicNameValuePair("location", newEntry.getLocation()));
+        parameters.add(new BasicNameValuePair("tag", newEntry.getTag()));
 		parameters.add(new BasicNameValuePair("day", newEntry.getDay()));
         parameters.add(new BasicNameValuePair("month", newEntry.getMonth()));
         parameters.add(new BasicNameValuePair("year", newEntry.getYear()));
 		parameters.add(new BasicNameValuePair("outgoing", newEntry.isOutgoing()));
-        parameters.add(new BasicNameValuePair("tag", "upload"));
+        parameters.add(new BasicNameValuePair("type", "upload"));
 
 		DefaultHttpClient client = new DefaultHttpClient();
 		HttpPost httpPost = new HttpPost(uploadUrl);
@@ -77,7 +78,7 @@ public class TransactionClient  {
 		parameters.add(new BasicNameValuePair("username", username));
         parameters.add(new BasicNameValuePair("password", password));
 		parameters.add(new BasicNameValuePair("id", newEntry.getId()));
-        parameters.add(new BasicNameValuePair("tag", "delete"));
+        parameters.add(new BasicNameValuePair("type", "delete"));
 		DefaultHttpClient client = new DefaultHttpClient();
 		HttpPost httpPost = new HttpPost(deleteUrl);
 		try{
@@ -99,7 +100,7 @@ public class TransactionClient  {
 		}
 	}
 
-    public static Transaction createRecord(String amount, String location, String outgoing, String id, String day, String month, String year) {
+    public static Transaction createRecord(String amount, String location, String outgoing, String tag, String id, String day, String month, String year) {
         Transaction newTransaction = new Transaction();
         newTransaction.setAmount(amount);
         newTransaction.setLocation(location);
@@ -107,6 +108,7 @@ public class TransactionClient  {
         newTransaction.setMonth(month);
         newTransaction.setYear(year);
         newTransaction.setOutgoing(outgoing);
+        newTransaction.setTag(tag);
         newTransaction.setId(id);
         if (newTransaction.isOutgoing().equals("true")) {
             newTransaction.setIcon("#ad0202");

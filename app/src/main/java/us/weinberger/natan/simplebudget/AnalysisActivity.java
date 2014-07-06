@@ -131,6 +131,8 @@ public class AnalysisActivity extends ActionBarActivity implements ActionBar.Tab
             switch (position) {
                 case 0:
                     return new AnalysisBarGraphFragment();
+                case 1:
+                    return new AnalysisPieChartFragment();
                 default:
                     return PlaceholderFragment.newInstance(position + 1);
             }

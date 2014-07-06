@@ -38,7 +38,7 @@ public class AnalysisBarGraphFragment extends Fragment {
         g = (BarGraph)v.findViewById(R.id.bargraph);
         assert g != null;
 
-        g.setBars(points);
+//        g.setBars(points);
 
 //        g.setOnBarClickedListener(new BarGraph.OnBarClickedListener(){
 //
@@ -114,11 +114,6 @@ public class AnalysisBarGraphFragment extends Fragment {
         }
 
         for (int i = 0; i < transactionList.size(); i++) {
-            Log.d("numMonths ", String.valueOf(numMonths));
-            Log.d("currentMonth ", String.valueOf(currentMonth));
-            Log.d("getNumMonth ", String.valueOf(transactionList.get(i).getNumMonth()));
-            Log.d("year ", String.valueOf(year));
-            Log.d("getNumYear ", String.valueOf(transactionList.get(i).getNumYear()));
             if (tempNumMonths == 0) break;
             else if (transactionList.get(i).getNumMonth() == currentMonth && transactionList.get(i).getNumYear() == year) {
                 if (transactionList.get(i).isOutgoing().equals("true")) monthlyTotals[tempNumMonths-1] += Functions.extractAmount(transactionList.get(i));
@@ -137,7 +132,7 @@ public class AnalysisBarGraphFragment extends Fragment {
         }
 
         String[] colorArray = {"#FFBB33", "#42E0F5", "#99CC00"};
-        String [] monthArray = {"January","February","March","April","May","June","July","August","September","October","November","December"};
+        String[] monthArray = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 
         for (int i = 0; i < numMonths; i++) {
             int monthArrayIndex = month-numMonths+i;

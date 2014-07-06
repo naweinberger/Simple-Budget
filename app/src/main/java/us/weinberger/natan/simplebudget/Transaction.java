@@ -11,8 +11,19 @@ public class Transaction {
     String outgoing;
     String id;
     String icon;
+    String tag;
     int numDay, numMonth, numYear;
     Calendar date;
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+
 
     public Calendar getDate() {
         return date;

@@ -37,7 +37,7 @@ public class DetailTransactionFragment extends Fragment {
     static AutoCompleteTextView locationET;
     static String date = "test";
     static Button datePickerButton;
-    Spinner typeSpinner;
+    static Spinner typeSpinner;
     ImageButton completeTransactionButton;
     static ToggleButton outgoingToggle;
     static boolean toggleChecked = true;
@@ -155,6 +155,7 @@ public class DetailTransactionFragment extends Fragment {
         transaction.setDay(Integer.toString(mDay));
         transaction.setMonth(Integer.toString(mMonth+1));
         transaction.setYear(Integer.toString(mYear));
+        transaction.setTag(typeSpinner.getSelectedItem().toString());
         if (toggleChecked) {
             transaction.setOutgoing("true");
         }
