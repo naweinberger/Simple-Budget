@@ -40,6 +40,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class PieGraph extends View {
@@ -72,7 +73,7 @@ public class PieGraph extends View {
         int totalValue = 0;
         float padding = 2;
 
-        midX = getWidth()/2;
+        midX = getWidth()/2 - 200;
         midY = getHeight()/2;
         if (midX < midY){
             radius = midX;
@@ -110,7 +111,7 @@ public class PieGraph extends View {
             //xOffset = Math.cos(Math.toRadians(realAngle)) < 0 ? -90-thickness : 25;
 
             //canvas.drawText(slice.getTitle(), slice.getRegion().getBounds().centerX() + radius*(float)Math.cos(Math.toRadians(realAngle)) + xOffset, slice.getRegion().getBounds().centerY() - radius*(float)Math.sin((Math.toRadians(realAngle))), paint);
-            canvas.drawText(slice.getTitle(), slice.getRegion().getBounds().right+230, slice.getRegion().getBounds().centerY() + 50*(i-slices.size()/2), paint);
+            canvas.drawText(slice.getTitle() + ": $" + new DecimalFormat("0.00").format(slice.getValue()), slice.getRegion().getBounds().right + thickness + 20, slice.getRegion().getBounds().centerY() + 50*(i-slices.size()/2), paint);
 
             if (indexSelected == count && listener != null){
                 path.reset();
