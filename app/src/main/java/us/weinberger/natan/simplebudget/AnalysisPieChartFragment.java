@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,10 +23,11 @@ import java.util.Calendar;
 public class AnalysisPieChartFragment extends Fragment {
     static PieGraph pg;
     static ArrayList<Transaction> transactionList = new ArrayList<Transaction>();
-    static int numMonths = 2;
+    static int numMonths = 1;
     static ArrayList<String> tagsList = new ArrayList<String>();
     static ArrayList<Double> tagTotals = new ArrayList<Double>();
     static ArrayList<PieSlice> slicesList = new ArrayList<PieSlice>();
+    Spinner numMonthsSpinner;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_analysis_pie_chart, container, false);
@@ -44,6 +48,40 @@ public class AnalysisPieChartFragment extends Fragment {
 //            tagsList = Functions.deserializeArray(tagsSerialized);
 //            tagNames = new String[tagsList.size()];
 //            Log.d("size", String.valueOf(tagsList.size()));
+
+        numMonthsSpinner = (Spinner) v.findViewById(R.id.numMonthsPieSpinner);
+        String[] numMonthsList = {"1 month", "3 months", "6 months", "9 months", "12 months"};
+        ArrayAdapter<String> typesAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, numMonthsList);
+        numMonthsSpinner.setAdapter(typesAdapter);
+
+        numMonthsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i) {
+                    case 0:
+                        numMonths = 1;
+                        break;
+                    case 1:
+                        numMonths = 3;
+                        break;
+                    case 2:
+                        numMonths = 6;
+                        break;
+                    case 3:
+                        numMonths = 9;
+                        break;
+                    case 4:
+                        numMonths = 12;
+                        break;
+                }
+                createChart(transactionList);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         return v;
     }

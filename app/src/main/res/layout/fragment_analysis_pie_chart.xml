@@ -11,7 +11,7 @@
     tools:context="us.weinberger.natan.simplebudget.AnalysisActivity$PlaceholderFragment">
 
     <Spinner
-        android:id="@+id/numMonthsSpinner"
+        android:id="@+id/numMonthsPieSpinner"
         android:layout_width="125dp"
         android:layout_height="40dp"
         android:layout_gravity="right"

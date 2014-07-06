@@ -50,7 +50,7 @@ public class AnalysisBarGraphFragment extends Fragment {
 //        });
 
 
-        numMonthsSpinner = (Spinner) v.findViewById(R.id.numMonthsSpinner);
+        numMonthsSpinner = (Spinner) v.findViewById(R.id.numMonthsBarSpinner);
         String[] numMonthsList = {"3 months", "6 months", "9 months", "12 months"};
         ArrayAdapter<String> typesAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, numMonthsList);
         numMonthsSpinner.setAdapter(typesAdapter);
