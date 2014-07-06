@@ -110,8 +110,10 @@ public class PieGraph extends View {
             //int xOffset = 0;
             //xOffset = Math.cos(Math.toRadians(realAngle)) < 0 ? -90-thickness : 25;
 
+
             //canvas.drawText(slice.getTitle(), slice.getRegion().getBounds().centerX() + radius*(float)Math.cos(Math.toRadians(realAngle)) + xOffset, slice.getRegion().getBounds().centerY() - radius*(float)Math.sin((Math.toRadians(realAngle))), paint);
-            canvas.drawText(slice.getTitle() + ": $" + new DecimalFormat("0.00").format(slice.getValue()), slice.getRegion().getBounds().right + thickness + 20, slice.getRegion().getBounds().centerY() + 50*(i-slices.size()/2), paint);
+            String theText = slice.getTitle() + ": $" + new DecimalFormat("0.00").format(slice.getValue());
+            canvas.drawText(theText, slice.getRegion().getBounds().right + thickness + 20, slice.getRegion().getBounds().centerY() + 50*(i-slices.size()/2), paint);
 
             if (indexSelected == count && listener != null){
                 path.reset();
@@ -128,6 +130,9 @@ public class PieGraph extends View {
                 }
 
                 canvas.drawPath(path, paint);
+                paint.setColor(Color.parseColor("#ffffff"));
+                paint.setTextSize(30);
+                canvas.drawText(theText, slice.getRegion().getBounds().centerX() - (7.25f*theText.length()), slice.getRegion().getBounds().centerY(), paint);
                 paint.setAlpha(255);
             }
 

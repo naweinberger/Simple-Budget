@@ -33,6 +33,13 @@ public class AnalysisPieChartFragment extends Fragment {
 
         pg = (PieGraph)v.findViewById(R.id.piechart);
 
+        pg.setOnSliceClickedListener(new PieGraph.OnSliceClickedListener() {
+            @Override
+            public void onClick(int index) {
+
+            }
+        });
+
 //            String tagsSerialized = getActivity().getSharedPreferences("SBPref", 0).getString("types", "");
 //            tagsList = Functions.deserializeArray(tagsSerialized);
 //            tagNames = new String[tagsList.size()];
@@ -42,7 +49,8 @@ public class AnalysisPieChartFragment extends Fragment {
     }
 
     public static void createChart(ArrayList<Transaction> newTransactionList) {
-
+        tagsList.clear();
+        tagTotals.clear();
         pg.removeSlices();
         int tempNumMonths = numMonths;
         transactionList = newTransactionList;
@@ -83,9 +91,9 @@ public class AnalysisPieChartFragment extends Fragment {
 
 
                 if (transactionList.get(i).isOutgoing().equals("true")) {
-                    tagTotals.add(position, tagTotals.get(position) + Functions.extractAmount(transactionList.get(i)));
+                    tagTotals.add(position, Functions.extractAmount(transactionList.get(i)));
                 }
-                else tagTotals.add(position, tagTotals.get(position) - Functions.extractAmount(transactionList.get(i)));
+                else tagTotals.add(position, (-1 * Functions.extractAmount(transactionList.get(i))));
 
 
             }
@@ -101,15 +109,14 @@ public class AnalysisPieChartFragment extends Fragment {
             }
         }
 
-        String[] colorArray = {"#FFBB33", "#42E0F5", "#99CC00"};
+        String[] colorArray = {"#FFBB33", "#42E0F5", "#99CC00", "#FF29F1", "#F51D1D"};
         //String[] monthArray = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 
         for (int i = 0; i < tagsList.size(); i++) {
             //int monthArrayIndex = month-numMonths+i;
             //if (monthArrayIndex < 0) monthArrayIndex += 12;
 
-            int colorIndex = i%3;
-
+            int colorIndex = i%5;
             pg.addSlice(new PieSlice(tagsList.get(i), Color.parseColor(colorArray[colorIndex]), (float) (double) tagTotals.get(i)));
 
         }
