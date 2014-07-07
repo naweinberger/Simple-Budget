@@ -2,7 +2,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
-        android:title="Tags">
+        android:title="Places and Tags">
 
         <Preference
             android:key="load_locations_remove"
@@ -13,7 +13,15 @@
             android:key="load_tags_remove"
             android:title="@string/tags_title_pref"
             android:summary="@string/tags_summary_pref"/>
+    </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="Export data">
+
+        <us.weinberger.natan.simplebudget.util.MyDialogPreference
+            android:key="export_data"
+            android:title="Export data as CSV"/>
 
     </PreferenceCategory>
+
 </PreferenceScreen>
