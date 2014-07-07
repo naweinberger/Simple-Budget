@@ -1,25 +1,22 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.fragments;
 
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
 import android.widget.AdapterView;
-import android.widget.ExpandableListAdapter;
-import android.widget.ExpandableListView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.Transaction;
+import us.weinberger.natan.simplebudget.network.DownloadClient;
+import us.weinberger.natan.simplebudget.network.TransactionClient;
 
 /**
  * Created by Natan on 6/21/2014.

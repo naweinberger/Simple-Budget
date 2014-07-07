@@ -1,4 +1,4 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.activities;
 
 import android.app.ListActivity;
 import android.content.SharedPreferences;
@@ -14,10 +14,13 @@ import com.mobeta.android.dslv.DragSortListView;
 
 import java.util.ArrayList;
 
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.util.Functions;
+
 /**
  * Created by Natan on 6/22/2014.
  */
-public class SettingsLocationsActivity extends ListActivity {
+public class SettingsTagsActivity extends ListActivity {
     DragSortListView listView;
     ArrayAdapter<String> adapter;
     ArrayList<String> list = new ArrayList<String>();
@@ -33,15 +36,15 @@ public class SettingsLocationsActivity extends ListActivity {
                 String item = adapter.getItem(from);
                 adapter.remove(item);
                 adapter.insert(item, to);
-                ArrayList<String> newPlacesListOnClick = new ArrayList<String>();
+                ArrayList<String> newTypesListOnClick = new ArrayList<String>();
                 for (int i = 0; i < adapter.getCount(); i++) {
-                    newPlacesListOnClick.add(adapter.getItem(i));
+                    newTypesListOnClick.add(adapter.getItem(i));
                 }
-                String newPlacesListOnDrop = Functions.serializeArray(newPlacesListOnClick);
+                String newTypesListOnDrop = Functions.serializeArray(newTypesListOnClick);
                 SharedPreferences prefs = getSharedPreferences("SBPref", 0);
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.remove("places");
-                editor.putString("places", newPlacesListOnDrop);
+                editor.remove("types");
+                editor.putString("types", newTypesListOnDrop);
                 editor.commit();
             }
         }
@@ -61,8 +64,8 @@ public class SettingsLocationsActivity extends ListActivity {
             for (int i = 0; i < adapter.getCount(); i++) {
                 newTypesList.add(adapter.getItem(i));
             }
-            editor.remove("places");
-            editor.putString("places", Functions.serializeArray(newTypesList));
+            editor.remove("types");
+            editor.putString("types", Functions.serializeArray(newTypesList));
             editor.commit();
         }
     };
@@ -70,13 +73,13 @@ public class SettingsLocationsActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings_locations);
+        setContentView(R.layout.activity_settings_tags);
 
         listView = (DragSortListView) findViewById(android.R.id.list);
 
         SharedPreferences prefs = getSharedPreferences("SBPref", 0);
-        String places = prefs.getString("places", "");
-        list = Functions.deserializeArray(places);
+        String tags = prefs.getString("types", "");
+        list = Functions.deserializeArray(tags);
         adapter = new ArrayAdapter<String>(this,
                 R.layout.tag_row_layout, R.id.tagName, list);
         listView.setAdapter(adapter);
@@ -95,13 +98,13 @@ public class SettingsLocationsActivity extends ListActivity {
         listView.setOnTouchListener(controller);
         listView.setDragEnabled(true);
 
-        Button addPlaceBtn = (Button) findViewById(R.id.add_places_tag_submit);
-        final EditText addPlaceEditText = (EditText) findViewById(R.id.add_places_tag_edittext);
+        Button addTagBtn = (Button) findViewById(R.id.add_tag_submit);
+        final EditText addTagEditText = (EditText) findViewById(R.id.add_tag_edittext);
 
-        addPlaceBtn.setOnClickListener(new View.OnClickListener() {
+        addTagBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String newTag = addPlaceEditText.getText().toString();
+                String newTag = addTagEditText.getText().toString();
                 adapter.insert(newTag, 0);
                 adapter.notifyDataSetChanged();
 
@@ -113,10 +116,10 @@ public class SettingsLocationsActivity extends ListActivity {
                 for (int i = 0; i < adapter.getCount(); i++) {
                     newTypesListOnClick.add(adapter.getItem(i));
                 }
-                editor.remove("places");
-                editor.putString("places", Functions.serializeArray(newTypesListOnClick));
+                editor.remove("types");
+                editor.putString("types", Functions.serializeArray(newTypesListOnClick));
                 editor.commit();
-                addPlaceEditText.setText("");
+                addTagEditText.setText("");
 
             }
         });

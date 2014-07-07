@@ -1,4 +1,4 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +15,8 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.TextView;
+
+import us.weinberger.natan.simplebudget.R;
 
 //public class StartupFragment extends Fragment {
 //

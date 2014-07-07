@@ -1,9 +1,8 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +10,16 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
+
+import us.weinberger.natan.simplebudget.util.Functions;
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.Transaction;
+import us.weinberger.natan.simplebudget.network.DownloadClient;
+import us.weinberger.natan.simplebudget.util.Bar;
+import us.weinberger.natan.simplebudget.util.BarGraph;
 
 /**
  * Created by Natan on 7/4/2014.
@@ -132,8 +136,25 @@ public class AnalysisBarGraphFragment extends Fragment {
         }
 
         String[] colorArray = {"#FFBB33", "#42E0F5", "#99CC00"};
+
         String[] monthArray = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 
+        if (numMonths > 9) {
+            monthArray[0] = "Jan";
+            monthArray[1] = "Feb";
+            monthArray[2] = "Mar";
+            monthArray[3] = "Apr";
+            monthArray[4] = "May";
+            monthArray[5] = "Jun";
+            monthArray[6] = "Jul";
+            monthArray[7] = "Aug";
+            monthArray[8] = "Sep";
+            monthArray[9] = "Oct";
+            monthArray[10] = "Nov";
+            monthArray[11] = "Dec";
+
+
+        }
         for (int i = 0; i < numMonths; i++) {
             int monthArrayIndex = month-numMonths+i;
             if (monthArrayIndex < 0) monthArrayIndex += 12;

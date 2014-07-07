@@ -1,14 +1,15 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.activities;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.app.Fragment;
+
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.fragments.HistoryListFragment;
 
 /**
  * Created by Natan on 6/21/2014.

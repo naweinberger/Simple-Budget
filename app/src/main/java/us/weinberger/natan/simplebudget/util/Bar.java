@@ -1,11 +1,8 @@
-package us.weinberger.natan.simplebudget;
-
-
 /*
  * 	   Created by Daniel Nadeau -- modified by Natan Weinberger
  * 	   daniel.nadeau01@gmail.com
  * 	   danielnadeau.blogspot.com
- *
+ * 
  * 	   Licensed to the Apache Software Foundation (ASF) under one
        or more contributor license agreements.  See the NOTICE file
        distributed with this work for additional information
@@ -24,60 +21,52 @@ package us.weinberger.natan.simplebudget;
        under the License.
  */
 
-        import android.graphics.Color;
-        import android.graphics.Path;
-        import android.graphics.Region;
+package us.weinberger.natan.simplebudget.util;
 
-public class PieSlice {
+import android.graphics.Path;
+import android.graphics.Region;
 
-    private int color = Color.BLACK;
+public class Bar {
+
+    private int color;
+    private String name;
     private float value;
-    private String title;
     private Path path;
     private Region region;
 
-    public PieSlice(String title, int color, float value) {
-        this.title = title;
+    public Bar(int color, String name, float value) {
         this.color = color;
+        this.name = name;
         this.value = value;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public int getColor() {
         return color;
     }
-
     public void setColor(int color) {
         this.color = color;
     }
-
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
     public float getValue() {
         return value;
     }
-
     public void setValue(float value) {
         this.value = value;
     }
-
     public Path getPath() {
         return path;
     }
-
     public void setPath(Path path) {
         this.path = path;
     }
-
     public Region getRegion() {
         return region;
     }
-
     public void setRegion(Region region) {
         this.region = region;
     }

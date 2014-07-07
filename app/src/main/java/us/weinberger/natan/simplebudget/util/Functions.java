@@ -1,4 +1,4 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.util;
 
 import android.app.Activity;
 import android.util.Log;
@@ -7,6 +7,8 @@ import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import us.weinberger.natan.simplebudget.Transaction;
 
 /**
  * Created by Natan on 6/21/2014.

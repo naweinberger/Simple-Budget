@@ -4,12 +4,12 @@
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <us.weinberger.natan.simplebudget.TextFitTextView
+    <us.weinberger.natan.simplebudget.util.TextFitTextView
         android:id="@+id/amountDisplayTV"
         style="@style/NumpadTextView"
         android:text="$0.00">
 
-    </us.weinberger.natan.simplebudget.TextFitTextView>
+    </us.weinberger.natan.simplebudget.util.TextFitTextView>
 
     <LinearLayout
         android:orientation="horizontal"

@@ -1,4 +1,4 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.util;
 
 import java.util.ArrayList;
 
@@ -12,6 +12,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.view.LayoutInflater;
 import android.widget.TextView;
+
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.Transaction;
 
 public class MyBaseAdapter extends BaseAdapter {
 	ArrayList<Transaction> list = new ArrayList<Transaction>();

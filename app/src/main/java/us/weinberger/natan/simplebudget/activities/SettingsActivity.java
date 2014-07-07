@@ -1,9 +1,9 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.activities;
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+
+import us.weinberger.natan.simplebudget.fragments.SettingsMainFragment;
 
 /**
  * Created by Natan on 6/21/2014.

@@ -1,14 +1,14 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.fragments;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
 import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 
-import java.util.ArrayList;
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.activities.SettingsLocationsActivity;
+import us.weinberger.natan.simplebudget.activities.SettingsTagsActivity;
 
 /**
  * Created by Natan on 6/21/2014.

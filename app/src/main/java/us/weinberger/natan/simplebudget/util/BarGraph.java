@@ -21,7 +21,7 @@
        under the License.
  */
 
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.util;
 
 import android.content.Context;
 import android.graphics.*;
@@ -34,6 +34,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+import us.weinberger.natan.simplebudget.R;
 
 public class BarGraph extends View {
 

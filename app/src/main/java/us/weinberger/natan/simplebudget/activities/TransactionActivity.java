@@ -1,18 +1,14 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.activities;
 
-import android.app.DatePickerDialog;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.text.format.DateFormat;
-import android.text.format.Time;
-import android.util.Log;
 import android.view.View;
-import android.widget.DatePicker;
-import android.widget.Toast;
 
-import java.util.Date;
+import us.weinberger.natan.simplebudget.fragments.NumpadFragment;
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.fragments.DetailTransactionFragment;
 
 
 /**

@@ -1,4 +1,4 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.network;
 
 import android.content.Context;
 import android.util.Log;
@@ -14,9 +14,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+
+import us.weinberger.natan.simplebudget.Transaction;
 
 
 public class TransactionClient  {

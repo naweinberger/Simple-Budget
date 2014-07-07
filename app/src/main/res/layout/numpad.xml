@@ -9,12 +9,12 @@
         android:layout_weight="1"
         android:layout_height="0dp"
         android:background="#2f302c">
-        <us.weinberger.natan.simplebudget.TextFitTextView
+        <us.weinberger.natan.simplebudget.util.TextFitTextView
             android:id="@+id/dialogValue"
             android:text="$0.00"
             style="@style/NumpadTextView">
 
-        </us.weinberger.natan.simplebudget.TextFitTextView>
+        </us.weinberger.natan.simplebudget.util.TextFitTextView>
     </TableRow>
     <TableRow
         android:id="@+id/second"

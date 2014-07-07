@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/settings_fragment_container"
-        android:name="us.weinberger.natan.simplebudget.SettingsMainFragment"
+        android:name="us.weinberger.natan.simplebudget.fragments.SettingsMainFragment"
         tools:layout="@layout/fragment_settings_main" />
 
 </FrameLayout>

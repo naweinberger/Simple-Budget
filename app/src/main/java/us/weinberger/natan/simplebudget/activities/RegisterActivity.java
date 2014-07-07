@@ -1,4 +1,4 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.activities;
 
 import android.app.Activity;
 import android.content.Context;
@@ -24,6 +24,9 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.network.JsonReader;
 
 public class RegisterActivity extends Activity {
 	String jsonResult, username, password, email;

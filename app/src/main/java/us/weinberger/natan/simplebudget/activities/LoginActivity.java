@@ -1,4 +1,4 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.activities;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,6 +23,9 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.network.JsonReader;
 
 public class LoginActivity extends Activity {
 	EditText usernameET, passwordET;

@@ -1,9 +1,6 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.network;
 
-import android.app.ProgressDialog;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.content.Context;
 
@@ -22,6 +19,13 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import us.weinberger.natan.simplebudget.fragments.AnalysisBarGraphFragment;
+import us.weinberger.natan.simplebudget.fragments.AnalysisPieChartFragment;
+import us.weinberger.natan.simplebudget.util.Functions;
+import us.weinberger.natan.simplebudget.fragments.HistoryListFragment;
+import us.weinberger.natan.simplebudget.Transaction;
+import us.weinberger.natan.simplebudget.util.MyBaseAdapter;
 
 /**
  * Created by Natan on 6/20/2014.

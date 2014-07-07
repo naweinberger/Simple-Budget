@@ -1,4 +1,4 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.util;
 
 import android.content.Context;
 import android.text.Layout;

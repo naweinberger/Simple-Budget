@@ -1,14 +1,11 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.fragments;
 
 import android.app.DatePickerDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
-import android.media.Image;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +22,12 @@ import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+
+import us.weinberger.natan.simplebudget.util.Functions;
+import us.weinberger.natan.simplebudget.activities.HomeActivity;
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.Transaction;
+import us.weinberger.natan.simplebudget.network.TransactionClient;
 
 /**
  * Created by Natan on 6/12/2014.

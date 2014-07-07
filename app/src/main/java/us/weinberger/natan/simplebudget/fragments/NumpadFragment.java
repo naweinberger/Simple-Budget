@@ -1,9 +1,8 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.fragments;
 
 import android.app.Fragment;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +11,9 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
+
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.util.TextFitTextView;
 
 /**
  * Created by Natan on 6/12/2014.

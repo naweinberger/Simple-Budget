@@ -1,11 +1,8 @@
-package us.weinberger.natan.simplebudget;
+package us.weinberger.natan.simplebudget.fragments;
 
 import android.app.Fragment;
-import android.content.SharedPreferences;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +12,13 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import us.weinberger.natan.simplebudget.util.Functions;
+import us.weinberger.natan.simplebudget.R;
+import us.weinberger.natan.simplebudget.Transaction;
+import us.weinberger.natan.simplebudget.network.DownloadClient;
+import us.weinberger.natan.simplebudget.util.PieGraph;
+import us.weinberger.natan.simplebudget.util.PieSlice;
 
 
 /**
@@ -129,9 +133,9 @@ public class AnalysisPieChartFragment extends Fragment {
 
 
                 if (transactionList.get(i).isOutgoing().equals("true")) {
-                    tagTotals.add(position, Functions.extractAmount(transactionList.get(i)));
+                    tagTotals.set(position, tagTotals.get(position) + Functions.extractAmount(transactionList.get(i)));
                 }
-                else tagTotals.add(position, (-1 * Functions.extractAmount(transactionList.get(i))));
+                else tagTotals.set(position, tagTotals.get(position) + (-1 * Functions.extractAmount(transactionList.get(i))));
 
 
             }

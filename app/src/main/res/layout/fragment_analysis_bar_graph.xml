@@ -8,7 +8,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="@color/appBackground"
     android:orientation="vertical"
-    tools:context="us.weinberger.natan.simplebudget.AnalysisActivity$PlaceholderFragment">
+    tools:context="us.weinberger.natan.simplebudget.activities.AnalysisActivity$PlaceholderFragment">
 
     <Spinner
         android:id="@+id/numMonthsBarSpinner"
@@ -18,7 +18,7 @@
         style="@android:style/Widget.Holo.Spinner">
     </Spinner>
 
-    <us.weinberger.natan.simplebudget.BarGraph
+    <us.weinberger.natan.simplebudget.util.BarGraph
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
