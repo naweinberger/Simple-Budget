@@ -34,6 +34,17 @@ public class SettingsMainFragment extends PreferenceFragment {
             }
         });
 
+        Preference editLocationsPref = (Preference) findPreference("load_locations_remove");
+        editLocationsPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                Intent intent = new Intent(getActivity(), SettingsLocationsActivity.class);
+                startActivity(intent);
+
+                return false;
+            }
+        });
+
     }
 
 }

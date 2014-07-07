@@ -12,4 +12,10 @@
     <string name="title_activity_analysis">Analysis</string>
     <string name="hello_world">Hello world!</string>
 
+    <string name="locations_summary_pref">Add and remove places</string>
+    <string name="tags_summary_pref">Add, remove, and reorder tags</string>
+
+    <string name="locations_title_pref">Edit places</string>
+    <string name="tags_title_pref">Edit tags</string>
+
 </resources>

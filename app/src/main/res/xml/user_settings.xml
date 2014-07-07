@@ -5,9 +5,14 @@
         android:title="Tags">
 
         <Preference
+            android:key="load_locations_remove"
+            android:title="@string/locations_title_pref"
+            android:summary="@string/locations_summary_pref"/>
+
+        <Preference
             android:key="load_tags_remove"
-            android:title="Edit tags"
-            android:summary="Add, remove, or reorder tags"/>
+            android:title="@string/tags_title_pref"
+            android:summary="@string/tags_summary_pref"/>
 
 
     </PreferenceCategory>
