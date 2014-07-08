@@ -26,6 +26,7 @@ import us.weinberger.natan.simplebudget.util.Functions;
 import us.weinberger.natan.simplebudget.fragments.HistoryListFragment;
 import us.weinberger.natan.simplebudget.Transaction;
 import us.weinberger.natan.simplebudget.util.MyBaseAdapter;
+import us.weinberger.natan.simplebudget.util.MyDialogPreference;
 
 /**
  * Created by Natan on 6/20/2014.
@@ -101,6 +102,10 @@ public class DownloadClient extends AsyncTask<Void, Void, Void> {
         else if (taskTag == "analysis") {
             AnalysisBarGraphFragment.createChart(transactionList);
             AnalysisPieChartFragment.createChart(transactionList);
+        }
+
+        else if (taskTag == "export") {
+            MyDialogPreference.setTransactionList(transactionList, context);
         }
     }
 
